@@ -1,0 +1,266 @@
+table 'Salary Increases'
+	lineageTag: 934f8cf0-b74d-4ff8-a4e3-160004017ff7
+
+	measure 'Annualized Salary Increases' = COALESCE(SUM('Salary Increases'[Annualized Salary Adjustment Amount]), 0)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: dcd5c8f5-21d5-4f6f-86ab-15b0a0b4098e
+
+	measure 'Merit & Phase 1 Increases' = ```
+			CALCULATE(SUM('Salary Increases'[Annualized Salary Adjustment Amount]), 'Salary Increases'[Action Description] = "Merit & Phase 1 Increases") 
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 86730da7-3c66-47cc-9d41-c1345129db02
+
+	measure 'Merit & Phase 3 Increases' = ```
+			CALCULATE(SUM('Salary Increases'[Annualized Salary Adjustment Amount]), 'Salary Increases'[Action Description] = "Merit & Phase 3 Increases") 
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: a7dd7f7e-0293-4941-8ae4-00232e5c24aa
+
+	measure 'Phase 2 Increases' = ```
+			CALCULATE(SUM('Salary Increases'[Annualized Salary Adjustment Amount]), 'Salary Increases'[Action Description] = "Phase 2 Increases") 
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 9d5a7d35-5184-4591-9b48-4ef7d0907a42
+
+	column 'Person Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ef6702a-0351-4499-9dac-61e7535438ab
+		summarizeBy: sum
+		sourceColumn: Person Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 9b0c932f-d7d8-4c42-8151-7ddaabe2fc38
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Normal Working Hours'
+		dataType: int64
+		formatString: 0
+		lineageTag: f50fc3e7-900f-40d6-ad93-e5f80d7ee537
+		summarizeBy: sum
+		sourceColumn: Normal Working Hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asgmt Cat Cd'
+		dataType: string
+		lineageTag: 907f0702-446f-4ce2-a656-e5e4ea612a52
+		summarizeBy: none
+		sourceColumn: Asgmt Cat Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'System Person Type'
+		dataType: string
+		lineageTag: 08d2f70e-a09d-4949-920f-0fa6003b88b9
+		summarizeBy: none
+		sourceColumn: System Person Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Department Name'
+		dataType: string
+		lineageTag: f59e0c1e-9465-4a31-9f41-914b34df0406
+		summarizeBy: none
+		sourceColumn: Department Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VP Area'
+		dataType: string
+		lineageTag: 57c61832-606b-43e0-8a6d-0dc28314be4a
+		summarizeBy: none
+		sourceColumn: VP Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column School
+		dataType: string
+		lineageTag: 53f7f977-b35d-4492-946b-108b3db8bf32
+		summarizeBy: none
+		sourceColumn: School
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Title'
+		dataType: string
+		lineageTag: 87c3c33d-e394-4a7e-8654-2026cb89f4ea
+		summarizeBy: none
+		sourceColumn: Job Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Salary Change Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 1615eacd-47bb-4b95-925a-5b0b3aef0574
+		summarizeBy: none
+		sourceColumn: Salary Change Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Salary Frequency'
+		dataType: string
+		lineageTag: 0d72adb5-2b57-4738-81a4-a261b0ada782
+		summarizeBy: none
+		sourceColumn: Salary Frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prior Salary in Prior Frequency'
+		dataType: double
+		lineageTag: 4e11d880-bd4a-479b-8481-7558bcf3ecf5
+		summarizeBy: sum
+		sourceColumn: Prior Salary in Prior Frequency
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'New Salary'
+		dataType: double
+		lineageTag: 56171f08-7b38-40d5-91d3-07bab1c22ad8
+		summarizeBy: sum
+		sourceColumn: New Salary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Salary Adjustment Amount'
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2eb391f1-0eeb-49bf-a6a8-363df1bed676
+		summarizeBy: sum
+		sourceColumn: Salary Adjustment Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Corrected Salary Adjustment Amount'
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 7b903773-df00-4eb9-8a3e-8df2e2375345
+		summarizeBy: sum
+		sourceColumn: Corrected Salary Adjustment Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Annualized Prior Salary Amount'
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 388c2c41-8347-48e7-918f-d30cf8f51960
+		summarizeBy: sum
+		sourceColumn: Annualized Prior Salary Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Annualized New Salary Amount'
+		dataType: double
+		lineageTag: b1d85389-9bef-42ec-9de0-4ed8fe274048
+		summarizeBy: sum
+		sourceColumn: Annualized New Salary Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Annualized Salary Adjustment Amount'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 4405aee4-f3f5-4a88-80d9-c5c15f56af9e
+		summarizeBy: sum
+		sourceColumn: Annualized Salary Adjustment Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Action Description'
+		dataType: string
+		lineageTag: adab8f9b-d102-49db-9bed-7c8e3e4fe75d
+		summarizeBy: none
+		sourceColumn: Action Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Action Reason'
+		dataType: string
+		lineageTag: 102d5781-c291-49b0-a13a-ad3a183c36fd
+		summarizeBy: none
+		sourceColumn: Action Reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grade Code'
+		dataType: string
+		lineageTag: 9d436403-2e05-49c6-8579-973f8a35fc22
+		summarizeBy: none
+		sourceColumn: Grade Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Type'
+		dataType: string
+		lineageTag: 804c76bc-2cb0-4818-8807-6f5996f8e880
+		summarizeBy: none
+		sourceColumn: Person Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Remove/ Include'
+		dataType: string
+		lineageTag: e04d0e1e-dcbb-4dbe-9260-06d6ed7a6c99
+		summarizeBy: none
+		sourceColumn: Remove/ Include
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Salary Increases' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/pjt79774_creighton_edu/Documents/HR%20Reports%20-%20Secured/data/Salary%20Change%20Report%20-%20Kristy.csv"),[Delimiter=",", Columns=23, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Person Number", Int64.Type}, {"Normal Working Hours", Int64.Type}, {"Asgmt Cat Cd", type text}, {"System Person Type", type text}, {"Department Name", type text}, {"VP Area", type text}, {"School", type text}, {"Job Title", type text}, {"Salary Change Date", type date}, {"Salary Frequency", type text}, {"Prior Salary in Prior Frequency", type number}, {"New Salary", type number}, {"Salary Adjustment Amount", type number}, {"Corrected Salary Adjustment Amount", type number}, {"Annualized Prior Salary Amount", type number}, {"Annualized New Salary Amount", type number}, {"Annualized Salary Adjustment Amount", type number}, {"Action Description", type text}, {"Action Reason", type text}, {"Grade Code", type text}, {"Person Type", type text}, {"Remove/ Include", type text}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Changed Type",{{"Department Name", Text.Trim, type text}}),
+				    #"Extracted Text After Delimiter" = Table.TransformColumns(#"Trimmed Text", {{"Department Name", each Text.AfterDelimiter(_, " "), type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Extracted Text After Delimiter", each ([#"Remove/ Include"] = "Include")),
+				    #"Replaced Value" = Table.ReplaceValue(#"Filtered Rows","CFE","Center for Faculty Excellence",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","ClinAff","Health Sciences Multicultural & Community Affairs",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","GENC","General Counsel",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","HR","Human Resources",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","JesCom","Jesuit Community",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","Law School","Law",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","Phoenix","Phoenix Alliance",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Replaced Value6","PRES","Office of the President",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value8" = Table.ReplaceValue(#"Replaced Value7","Provost","Office of the Provost",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value9" = Table.ReplaceValue(#"Replaced Value8","SueSucs","Student Success",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value10" = Table.ReplaceValue(#"Replaced Value9","UCOM","University Communications",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value11" = Table.ReplaceValue(#"Replaced Value10","VPEM","Enrollment Management",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value12" = Table.ReplaceValue(#"Replaced Value11","VPFN","Finance",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value13" = Table.ReplaceValue(#"Replaced Value12","VPGE","Global Engagement",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value14" = Table.ReplaceValue(#"Replaced Value13","VPIT","Information Technology",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value15" = Table.ReplaceValue(#"Replaced Value14","VPLS","Library Services",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value16" = Table.ReplaceValue(#"Replaced Value15","VPMM","Mission & Ministry",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value17" = Table.ReplaceValue(#"Replaced Value16","VPSL","Student Life",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value18" = Table.ReplaceValue(#"Replaced Value17","VPUR","University Relations",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value19" = Table.ReplaceValue(#"Replaced Value18","VPAA","Academic Affairs",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value20" = Table.ReplaceValue(#"Replaced Value19","CollProCE","College of Professional & Continuing Eduction",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value21" = Table.ReplaceValue(#"Replaced Value20","Allocate Workforce Compensation","Merit Increase",Replacer.ReplaceText,{"Action Description"}),
+				    #"Replaced Value22" = Table.ReplaceValue(#"Replaced Value21","Change Salary","Salary Change",Replacer.ReplaceText,{"Action Description"}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Replaced Value22", each true),
+				    #"Replaced Value23" = Table.ReplaceValue(#"Filtered Rows1","PT9","PT09",Replacer.ReplaceText,{"Asgmt Cat Cd"})
+				in
+				    #"Replaced Value23"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

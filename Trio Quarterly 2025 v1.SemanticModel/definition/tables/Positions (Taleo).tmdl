@@ -1,0 +1,161 @@
+table 'Positions (Taleo)'
+	lineageTag: e027fb98-f52a-40af-b77c-0b10a98da2b7
+
+	measure 'Open Positions' = ```
+			
+			VAR SelectedDate = SELECTEDVALUE('Date (Report End)'[Date])
+			
+			RETURN
+			CALCULATE(
+			COUNTROWS('Positions (Taleo)'),
+			            'Positions (Taleo)'[Req. Creation Date] >= SelectedDate,
+			            'Positions (Taleo)'[Latest Filled Date] > 'Positions (Taleo)'[Req. Creation Date],
+			            'Positions (Taleo)'[Latest Filled Date] > 'Positions (Taleo)'[Req. Creation Date], -- Ensure Latest Filled Date is after Req. Creation Date
+			            'Positions (Taleo)'[Current Status] = "Filled"
+			        )
+			
+			
+			```
+		formatString: 0
+		lineageTag: c661344e-029a-4efe-a5fd-95ccbff8fcd5
+
+	column 'Req. Identifier'
+		dataType: int64
+		formatString: 0
+		lineageTag: d3fdd340-4cd3-4bab-8c0e-9734f28e76c5
+		summarizeBy: sum
+		sourceColumn: Req. Identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Req. Creation Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 8dbea306-e70f-41d4-88dd-9d2565c0eaa4
+		summarizeBy: none
+		sourceColumn: Req. Creation Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Employee Status Value'
+		dataType: string
+		lineageTag: 8b0df180-d956-4d87-9a0c-2fdb94a9e910
+		summarizeBy: none
+		sourceColumn: Employee Status Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Title (BL)'
+		dataType: string
+		lineageTag: 24f2f234-6a14-4c65-86e2-f4be2c3f49a4
+		summarizeBy: none
+		sourceColumn: Title (BL)
+
+		annotation SummarizationSetBy = Automatic
+
+	column Justification
+		dataType: string
+		lineageTag: 6615e450-f691-4c92-9c7c-b995b0a52ac0
+		summarizeBy: none
+		sourceColumn: Justification
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First Sourced Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 8fe133c1-0afe-4b71-8c17-11e1b938f0a3
+		summarizeBy: none
+		sourceColumn: First Sourced Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Latest Filled Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: de7eaec6-b2e3-4ae9-8660-828143be3219
+		summarizeBy: none
+		sourceColumn: Latest Filled Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Grant Funded Value'
+		dataType: string
+		lineageTag: 7a997109-62ee-4832-877e-3f8a26898ded
+		summarizeBy: none
+		sourceColumn: Grant Funded Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Type Value'
+		dataType: string
+		lineageTag: 380157ab-ad8a-41f8-9fc2-1be8eae9f83f
+		summarizeBy: none
+		sourceColumn: Job Type Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Type of Hire Value'
+		dataType: string
+		lineageTag: 0e9d4dc5-3000-46fc-ad6a-d93c79cae71b
+		summarizeBy: none
+		sourceColumn: Type of Hire Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Status'
+		dataType: string
+		lineageTag: db46e267-03d6-4988-85cf-aa2fde85e9a9
+		summarizeBy: none
+		sourceColumn: Current Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Posting Status'
+		dataType: string
+		lineageTag: 5a63cdef-d6d2-49fc-98f5-461e24616a11
+		summarizeBy: none
+		sourceColumn: Current Posting Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Category - Code'
+		dataType: string
+		lineageTag: 2366ff00-f241-4790-b977-37cf44ec4fd6
+		summarizeBy: none
+		sourceColumn: Job Category - Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School/Org - Code'
+		dataType: string
+		lineageTag: cecf93d2-6210-448b-975b-6849acea1e6c
+		summarizeBy: none
+		sourceColumn: School/Org - Code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Positions (Taleo)' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/pjt79774_creighton_edu/Documents/HR%20Reports%20-%20Secured/Data/Open%20Positions%202025%20(PERNELL).csv"),[Delimiter=",", Columns=14, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Req. Identifier", Int64.Type}, {"Req. Creation Date", type datetime}, {"Employee Status Value", type text}, {"Title (BL)", type text}, {"Justification", type text}, {"First Sourced Date", type datetime}, {"Latest Filled Date", type datetime}, {"Grant Funded Value", type text}, {"Job Type Value", type text}, {"Type of Hire Value", type text}, {"Current Status", type text}, {"Current Posting Status", type text}, {"Job Category - Code", type text}, {"School/Org - Code", type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([Current Status] = "Approved" or [Current Status] = "Filled" or [Current Status] = "Sourcing") and ([Job Type Value] = "Benefit Eligible") and ([#"Job Category - Code"] <> "STUDENT")),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Filtered Rows",{{"Req. Creation Date", type date}, {"First Sourced Date", type date}, {"Latest Filled Date", type date}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type1","STAFF","Staff",Replacer.ReplaceText,{"Job Category - Code"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","FACULTY","Faculty",Replacer.ReplaceText,{"Job Category - Code"})
+				in
+				    #"Replaced Value1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

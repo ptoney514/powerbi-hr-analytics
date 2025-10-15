@@ -1,0 +1,253 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "869121a50e781c098b20",
+  "position": {
+    "x": 32,
+    "y": 368,
+    "z": 5000,
+    "height": 336,
+    "width": 439.99999999999994,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Additional Payments Report",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#094780"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "This report includes additional payments awarded to employees in addition to their regular base salary. There are 3 additional payment types within the payroll system, ",
+                    "textStyle": {
+                      "fontSize": "9pt"
+                    }
+                  },
+                  {
+                    "value": "(1) Additional Duties",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "9pt",
+                      "color": "#0d6abf"
+                    }
+                  },
+                  {
+                    "value": ", ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#0d6abf"
+                    }
+                  },
+                  {
+                    "value": "(2) Supplemental Earnings, and (3) Interim Pay",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "9pt",
+                      "color": "#0d6abf"
+                    }
+                  },
+                  {
+                    "value": ".",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#0d6abf"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "This report scope includes:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#000000"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Includes all additional payments during specified time period.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "9pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Time periods reflect the date the payment was earned, not the actual payment date.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "9pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Includes payments earned for the following Creighton employment assignment categories (as applicable).",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#151515"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Please refer to the Creighton University Human Resources Additional Compensation SOP for definitions of each type of additional payment.",
+                    "textStyle": {
+                      "fontStyle": "italic",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "Additional Compensation SOP",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#3c559c"
+                    },
+                    "url": "https://creightonuniv.sharepoint.com/sites/HumanResourcesIntranet/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FHumanResourcesIntranet%2FShared%20Documents%2FCompensation%2C%20Merit%2C%20Total%20Rewards%2FAdditional%20Compensation%20SOP%2Epdf&parent=%2Fsites%2FHumanResourcesIntranet%2FShared%20Documents%2FCompensation%2C%20Merit%2C%20Total%20Rewards&p=true&ga=1"
+                  },
+                  {
+                    "value": ".",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#3c559c"
+                    },
+                    "url": "https://creightonuniv.sharepoint.com/sites/HumanResourcesIntranet/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FHumanResourcesIntranet%2FShared%20Documents%2FCompensation%2C%20Merit%2C%20Total%20Rewards%2FAdditional%20Compensation%20SOP%2Epdf&parent=%2Fsites%2FHumanResourcesIntranet%2FShared%20Documents%2FCompensation%2C%20Merit%2C%20Total%20Rewards&p=true&ga=1"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

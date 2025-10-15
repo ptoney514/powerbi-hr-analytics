@@ -1,0 +1,510 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "6ae955b87c0dd55eaa28",
+  "position": {
+    "x": 384,
+    "y": 200,
+    "z": 8000,
+    "height": 512,
+    "width": 888,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "decompositionTreeVisual",
+    "query": {
+      "queryState": {
+        "Analyze": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Additional Pay Extract"
+                        }
+                      },
+                      "Property": "AMOUNT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Additional Pay Extract.AMOUNT)",
+              "nativeQueryRef": "Total Additional Pay",
+              "displayName": "Total Additional Pay"
+            }
+          ]
+        },
+        "ExplainBy": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Additional Pay Extract"
+                    }
+                  },
+                  "Property": "PAYMENT_TYPE"
+                }
+              },
+              "queryRef": "Additional Pay Extract.PAYMENT_TYPE",
+              "nativeQueryRef": "PAYMENT_TYPE",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Additional Pay Extract"
+                    }
+                  },
+                  "Property": "REASON"
+                }
+              },
+              "queryRef": "Additional Pay Extract.REASON",
+              "nativeQueryRef": "REASON",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Additional Pay Extract"
+                    }
+                  },
+                  "Property": "DEPT NAME"
+                }
+              },
+              "queryRef": "Additional Pay Extract.DEPT NAME",
+              "nativeQueryRef": "DEPT NAME",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Additional Pay Extract"
+                    }
+                  },
+                  "Property": "SCHOOL"
+                }
+              },
+              "queryRef": "Additional Pay Extract.SCHOOL",
+              "nativeQueryRef": "School/College/Department",
+              "active": false,
+              "displayName": "School/College/Department"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Additional Pay Extract"
+                    }
+                  },
+                  "Property": "JOB NAME"
+                }
+              },
+              "queryRef": "Additional Pay Extract.JOB NAME",
+              "nativeQueryRef": "JOB NAME",
+              "active": false
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Additional Pay Extract"
+                      }
+                    },
+                    "Property": "AMOUNT"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "ExplainBy"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Additional Pay Extract.PAYMENT_TYPE"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Additional Pay Extract"
+                    }
+                  },
+                  "Property": "PAYMENT_TYPE"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Additional Pay Extract.REASON"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Additional Pay Extract"
+                    }
+                  },
+                  "Property": "REASON"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Additional Pay Extract.DEPT NAME"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Additional Pay Extract"
+                    }
+                  },
+                  "Property": "DEPT NAME"
+                }
+              }
+            ]
+          },
+          {
+            "queryRefs": [
+              "Additional Pay Extract.SCHOOL"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Additional Pay Extract"
+                    }
+                  },
+                  "Property": "SCHOOL"
+                }
+              }
+            ]
+          },
+          {
+            "queryRefs": [
+              "Additional Pay Extract.JOB NAME"
+            ],
+            "isCollapsed": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Additional Duties'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "tree": [
+        {
+          "properties": {
+            "effectiveBarsPerLevel": {
+              "expr": {
+                "Literal": {
+                  "Value": "8L"
+                }
+              }
+            },
+            "density": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dense'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataLabels": [
+        {
+          "properties": {
+            "dataLabelFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "categoryLabelFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "categoryLabelBold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataBars": [
+        {
+          "properties": {
+            "dataBarWidthPercent": {
+              "expr": {
+                "Literal": {
+                  "Value": "118L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "insights": [
+        {
+          "properties": {
+            "isAINode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Additional Pay Extract"
+                          }
+                        },
+                        "Property": "SCHOOL"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Athletics'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Additional Pay Extract"
+                          }
+                        },
+                        "Property": "PAYMENT_TYPE"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Supplemental Earnings'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Additional Pay Extract"
+                          }
+                        },
+                        "Property": "REASON"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Bonus - Athletic / Coaching'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Additional Pay Extract"
+                          }
+                        },
+                        "Property": "DEPT NAME"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Athletic Department - Men''s Basketball'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "levelHeader": [
+        {
+          "properties": {
+            "levelTitleFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "levelTitleFontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "levelSubtitleFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "696dff807489912d7c7a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Additional Pay Extract"
+              }
+            },
+            "Property": "EMPLOYMENT CATEGORY"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

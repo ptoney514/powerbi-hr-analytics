@@ -1,0 +1,167 @@
+table 'All Measures'
+	lineageTag: c84c4ccb-666c-4575-bc2d-de9c08cb362e
+
+	measure '(NBE) Total Headcount' = CALCULATE(COUNT('(Active) Job Details'[Empl num]), '(Active) Job Details'[Benefit Eligibility] = "Not Benefit Eligible")
+		formatString: 0
+		lineageTag: 9903ae21-4891-439c-ad4d-9526276cca4c
+
+	measure '(BE) Faculty and Staff' = CALCULATE(COUNT('(Active) Job Details'[Empl num]), '(Active) Job Details'[Benefit Eligibility] = "Benefit Eligible", '(Active) Job Details'[Assignment Eligibility] = "Benefit Eligible")
+		formatString: 0
+		displayFolder: Benefit Eligible
+		lineageTag: c32007d9-a52f-4f8a-9dec-63eb9aad7e44
+
+	measure '(BE) Faculty' = ```
+			CALCULATE(
+			    COUNT('(Active) Job Details'[Empl num]), 
+			    '(Active) Job Details'[Person Type] = "FACULTY",
+			    '(Active) Job Details'[Assignment Eligibility] = "Benefit Eligible"
+			    )
+			```
+		formatString: 0
+		displayFolder: Benefit Eligible
+		lineageTag: 57c765fc-1ecc-4ffb-ba6c-ef825de62ffd
+
+	measure '(Terms) Faculty' = ```
+			CALCULATE(
+			COUNT('Terms Since 2017'[Empl num]), 
+			'Terms Since 2017'[Benefit Eligibility] = "Benefit Eligible", 
+			'Terms Since 2017'[Faxc Staff] = "Faculty"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: ff952645-05e3-42c6-9ba3-6d3358ae299b
+
+	measure '(Terms) Staff' = ```
+			CALCULATE(
+			COUNT('Terms Since 2017'[Empl num]), 
+			'Terms Since 2017'[Benefit Eligibility] = "Benefit Eligible", 
+			'Terms Since 2017'[Faxc Staff] = "Staff"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: bf573b63-5124-4552-aa63-66e4afce73ae
+
+	measure '(BE) Staff' = ```
+			CALCULATE(
+			    COUNT('(Active) Job Details'[Empl num]), 
+			'(Active) Job Details'[Person Type] = "STAFF",
+			'(Active) Job Details'[Assignment Eligibility] = "Benefit Eligible"
+			)
+			```
+		formatString: #,0
+		displayFolder: Benefit Eligible
+		lineageTag: 5436bcaf-69c8-4f52-b586-2894ea8d4b1c
+
+	measure '(Benefit Eligible) Faculty by Date' =
+			
+			CALCULATE(
+			    COUNT('(Active) Job Details'[Empl num]),
+			    '(Active) Job Details'[Person Type] = "FACULTY",
+			    FILTER(
+			        ALL('Date (Report End)'),
+			        'Date (Report End)'[Fis Qtr qq-yy] = MAX('Date (Report End)'[Fis Qtr qq-yy])
+			    )
+			)
+		formatString: 0
+		displayFolder: Benefit Eligible
+		lineageTag: f9d007a3-7f0e-433d-9985-a23401d32a6d
+
+	measure 'Faculty Total Calculated (PR)' = ```
+			
+			VAR CurrentQtr = SELECTEDVALUE('Date'[Qtr Relative Num])
+			    RETURN
+			CALCULATE(
+			    [(BE) Faculty],
+			    'Date'[Qtr Relative Num] = CurrentQtr - 1
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 5d76998f-d966-445e-b47d-ef223a3dad27
+
+	measure '(BE) Faculty (Prev Qtr)' = CALCULATE([(BE) Faculty], DATEADD('Date (Report End)'[Date],-1,QUARTER))
+		formatString: 0
+		displayFolder: Benefit Eligible
+		lineageTag: b4fd19c9-d3da-48b9-9fb8-8337432626c5
+
+	measure '(BE) Faculty (Prev Year)' = CALCULATE([(BE) Faculty], DATEADD('Date (Report End)'[Date],-1,YEAR))
+		formatString: #,0
+		lineageTag: 315459b2-0665-4dc3-8d38-dcdbbc675a45
+
+	measure '(BE) Faculty Var' = [(BE) Faculty] - [(BE) Faculty (Prev Year)]
+		formatString: 0
+		lineageTag: a2476ab8-a7bf-4546-b472-857ce6e6e473
+
+	measure '(BE) Faculty Var %' = DIVIDE([(BE) Faculty Var], [(BE) Faculty])
+		formatString: 0%;-0%;0%
+		lineageTag: 497352bc-2322-47cf-a336-891b439471a6
+
+	measure '(BE) Faculty Var % Arrow' = ```
+			
+			var _uparrow = UNICHAR(129129)
+			var _downarrow = UNICHAR(129131)
+			var _varpercentage = [(BE) Faculty Var %]
+			var _varnumber = [(BE) Faculty Var]
+			var _blank = ISBLANK([(BE) Faculty])
+			RETURN
+			IF (_blank, BLANK(),
+			IF(_varnumber > 0, 
+				"[+" & round(_varpercentage,2)*100 & "%" & _uparrow & "]",
+				"  " & round(_varpercentage,2)*100 & "%" & _downarrow)
+			)
+			```
+		lineageTag: 0be125d7-c757-4aca-88ee-1c51865593d4
+
+	measure Residents = ```
+			CALCULATE(
+			    COUNT('(Active) Job Details'[Empl num]), 
+			   '(Active) Job Details'[Assignment Eligibility] = "Resident"
+			    )
+			```
+		formatString: 0
+		lineageTag: a56f9fdf-fcd8-4c6b-8a0f-053bd8dcb7eb
+
+	measure 'Student Worker' = ```
+			CALCULATE(
+			    COUNT('(Active) Job Details'[Empl num]), 
+			   '(Active) Job Details'[Assignment Eligibility] = "Student Worker"
+			    )
+			```
+		formatString: 0
+		lineageTag: edcfb953-fbbf-41f1-860e-acd82a3c4a14
+
+	measure '(BE) Faculty Var % Number' = ```
+			
+			var _uparrow = UNICHAR(129129)
+			var _downarrow = UNICHAR(129131)
+			var _varpercentage = [(BE) Faculty Var %]
+			var _varnumber = [(BE) Faculty Var]
+			var _blank = ISBLANK([(BE) Faculty])
+			RETURN
+			IF (_blank, BLANK(),
+			IF(_varnumber > 0, 
+				"+" & round(_varpercentage,2)*100 & "% increase",
+				"-" & round(_varpercentage,2)*100 & "% decrease")
+			)
+			```
+		lineageTag: f3176f4c-da3c-4269-a5da-24dd3a8fb978
+
+	column Column
+		formatString: 0
+		lineageTag: 467f8bcf-8a63-40b5-88d6-1f38cc9ce660
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'All Measures' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = c03e3d9ef7534f97857f7e2801917b2e
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

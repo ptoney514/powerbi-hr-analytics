@@ -1,0 +1,286 @@
+table 'Terms Since 2017'
+	lineageTag: cd80b2b8-61d9-477e-8d74-7dd48826b1ea
+
+	measure 'Terms Faculty_fix' = CALCULATE(COUNT('Terms Since 2017'[Empl num]), 'Terms Since 2017'[Benefit Eligibility] = "Benefit Eligible", 'Terms Since 2017'[Faxc Staff] = "Faculty")
+		formatString: 0
+		lineageTag: 1d97cf08-591c-49e7-a262-aee124578eb0
+
+	measure 'Terms Staff_fix' = CALCULATE(COUNT('Terms Since 2017'[Empl num]), 'Terms Since 2017'[Benefit Eligibility] = "Benefit Eligible", 'Terms Since 2017'[Faxc Staff] = "Staff")
+		formatString: 0
+		lineageTag: 7af90a53-2d4b-45be-bcb2-b964599ac1b4
+
+	column 'Empl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0852be8c-08f7-4006-9d91-24134638722b
+		summarizeBy: sum
+		sourceColumn: Empl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VP Area'
+		dataType: string
+		lineageTag: 2ac57238-5c21-42c4-bcb6-9656736fe50d
+		summarizeBy: none
+		sourceColumn: VP Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Benefit Program (Description)'
+		dataType: string
+		lineageTag: 8e4b72b2-074d-4a1c-8831-58d2b7dcbc6a
+		summarizeBy: none
+		sourceColumn: Benefit Program (Description)
+
+		annotation SummarizationSetBy = Automatic
+
+	column School
+		dataType: string
+		lineageTag: a361c3ba-70e9-4b70-9511-9b7a3e80f1a3
+		summarizeBy: none
+		sourceColumn: School
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Name'
+		dataType: string
+		lineageTag: 57cfd5aa-82e5-42ce-89d1-f76c43f4bae9
+		summarizeBy: none
+		sourceColumn: Last Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First Name'
+		dataType: string
+		lineageTag: 1ca8a6b6-29da-48e8-9826-fe57b067dfa6
+		summarizeBy: none
+		sourceColumn: First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Middle Name'
+		dataType: string
+		lineageTag: 065bc1cc-5029-4f51-9439-b3971d13f375
+		summarizeBy: none
+		sourceColumn: Middle Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Display Name'
+		dataType: string
+		lineageTag: 6003e605-108b-4f33-922c-978ed6a906f9
+		summarizeBy: none
+		sourceColumn: Display Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Date of Birth'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5cf9928c-acb9-4815-bb36-dfe53074a1ae
+		summarizeBy: none
+		sourceColumn: Person Date of Birth
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Gender
+		dataType: string
+		lineageTag: 4403ce37-a467-4418-bfca-096cfc64e947
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ethnicity
+		dataType: string
+		lineageTag: f8551d3c-69cc-4d3f-8409-bdbeba9b8ca6
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Disabled
+		dataType: string
+		lineageTag: bd2ea67a-d084-455e-adcf-c39f8d08e708
+		summarizeBy: none
+		sourceColumn: Disabled
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hire Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: b5fdd0dd-10fd-41d5-bab0-da555cbf7a12
+		summarizeBy: none
+		sourceColumn: Hire Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Term Reason 1'
+		dataType: string
+		lineageTag: ea3409b2-6d34-4440-ab7c-32bba748d30f
+		summarizeBy: none
+		sourceColumn: Term Reason 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Term Reason 2'
+		dataType: string
+		lineageTag: f8484922-2587-4d14-bd12-e47581530625
+		summarizeBy: none
+		sourceColumn: Term Reason 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Term Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 8c912468-f14e-49c9-a887-2fbfde5261e8
+		summarizeBy: none
+		sourceColumn: Term Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Term Qtr End Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: f6b2d8e1-5a58-4555-893c-8ca4b238cfe4
+		summarizeBy: none
+		sourceColumn: Term Qtr End Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'User Person Type'
+		dataType: string
+		lineageTag: 9a48f81b-158b-4b02-9b18-699c45cc0940
+		summarizeBy: none
+		sourceColumn: User Person Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Assignment Category'
+		dataType: string
+		lineageTag: 212ec50d-0e4e-40b0-ac28-e5a7a3823d7c
+		summarizeBy: none
+		sourceColumn: Assignment Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Grade
+		dataType: string
+		lineageTag: 23fb5f0b-ef84-463f-a15e-5f7bdf4e7177
+		summarizeBy: none
+		sourceColumn: Grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Faxc Staff'
+		dataType: string
+		lineageTag: a841c600-3ee8-460e-a119-f455847bf3f4
+		summarizeBy: none
+		sourceColumn: Faxc Staff
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Name'
+		dataType: string
+		lineageTag: 9d277029-2c09-42ab-8d7e-0b0682c5b12f
+		summarizeBy: none
+		sourceColumn: Job Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hourly/Salaried
+		dataType: string
+		lineageTag: b13420b2-02e7-489d-8141-bd130cc65160
+		summarizeBy: none
+		sourceColumn: Hourly/Salaried
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'People Group'
+		dataType: string
+		lineageTag: 8d014de0-9000-4c84-ace3-f7a5cdb67476
+		summarizeBy: none
+		sourceColumn: People Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dept Name'
+		dataType: string
+		lineageTag: 8694a482-f2eb-492a-b796-bc1326b912a0
+		summarizeBy: none
+		sourceColumn: Dept Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: 6a2e545b-c35b-4d7a-a47d-b1d1868d52cc
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vet Status'
+		dataType: string
+		lineageTag: 6e828dc0-c3c3-4cbf-abc7-dfa70e04b574
+		summarizeBy: none
+		sourceColumn: Vet Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Benefit Eligibility'
+		dataType: string
+		lineageTag: ca81553b-6f20-49b4-85a2-45af13b28969
+		summarizeBy: none
+		sourceColumn: Benefit Eligibility
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Terms Since 2017' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/ted72647_creighton_edu/Documents/Terms%20Since%202017%20Detail%20PT.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Empl Num", Int64.Type}, {"VP Area", type text}, {"Benefit Program (Description)", type text}, {"School", type text}, {"Last Name", type text}, {"First Name", type text}, {"Middle Name", type text}, {"Display Name", type text}, {"Person Date of Birth", type date}, {"Gender", type text}, {"Ethnicity", type text}, {"Disabled", type text}, {"Hire Date", type date}, {"Term Reason 1", type text}, {"Term Reason 2", type text}, {"Term Date", type date}, {"Term Qtr End Date", type date}, {"User Person Type", type text}, {"Assignment Category", type text}, {"Grade", type text}, {"Faxc Staff", type text}, {"Job Name", type text}, {"Std Working Hours", Int64.Type}, {"Normal Working Hours", Int64.Type}, {"Hourly/Salaried", type text}, {"People Group", type text}, {"Dept Name", type text}, {"Location", type text}, {"Vet Status", type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each true),
+				    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows",{"Normal Working Hours", "Std Working Hours"}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Removed Columns", each true),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Filtered Rows1", "Assignment Category", "Assignment Category - Copy"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Duplicated Column",{{"Assignment Category - Copy", "Benefit Eligibility"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns","F12","Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","F09","Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","TEMP","Not Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","F11","Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","CWS","Not Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","SUE","Not Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","HSR","Not Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Replaced Value6","PT12","Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value8" = Table.ReplaceValue(#"Replaced Value7","PT10","Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value9" = Table.ReplaceValue(#"Replaced Value8","PRN","Not Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value10" = Table.ReplaceValue(#"Replaced Value9","PT9","Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value11" = Table.ReplaceValue(#"Replaced Value10","PT11","Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value12" = Table.ReplaceValue(#"Replaced Value11","F10","Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value13" = Table.ReplaceValue(#"Replaced Value12","NBE","Not Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value14" = Table.ReplaceValue(#"Replaced Value13",null,"Not Benefit Eligible",Replacer.ReplaceValue,{"Benefit Eligibility"}),
+				    #"Filtered Rows2" = Table.SelectRows(#"Replaced Value14", each true),
+				    #"Replaced Value15" = Table.ReplaceValue(#"Filtered Rows2","F","Female",Replacer.ReplaceValue,{"Gender"}),
+				    #"Replaced Value16" = Table.ReplaceValue(#"Replaced Value15","M","Male",Replacer.ReplaceValue,{"Gender"})
+				in
+				    #"Replaced Value16"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

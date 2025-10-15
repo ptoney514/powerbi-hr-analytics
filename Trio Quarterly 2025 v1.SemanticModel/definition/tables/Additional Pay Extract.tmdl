@@ -1,0 +1,289 @@
+table 'Additional Pay Extract'
+	lineageTag: 5404e7c4-65e9-464d-a6f2-f77e217dfe27
+
+	measure 'Total Additional Payments' = CALCULATE(SUM('Additional Pay Extract'[AMOUNT]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 7184bbcd-aab6-4859-945f-22bedce499d5
+
+	measure 'Additional Duties' =
+			
+			CALCULATE(
+				SUM('Additional Pay Extract'[AMOUNT]),
+				'Additional Pay Extract'[PAYMENT_TYPE] IN { "Additional Duties" }
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 747dab40-dd01-4829-9b7d-826217e49cdd
+
+	measure 'Supplemental Earnings' =
+			
+			CALCULATE(
+				SUM('Additional Pay Extract'[AMOUNT]),
+				'Additional Pay Extract'[PAYMENT_TYPE] IN { "Supplemental Earnings" }
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: fbee99c6-bee6-4236-85c4-bc10730b0eac
+
+	measure 'Interim Payments' =
+			
+			CALCULATE(
+				SUM('Additional Pay Extract'[AMOUNT]),
+				'Additional Pay Extract'[PAYMENT_TYPE] IN { "Interim Payments" }
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 6b6a8da3-d784-48ca-beea-addd17eaef25
+
+	column PERSON
+		dataType: int64
+		formatString: 0
+		lineageTag: 50712f0b-4112-455d-8532-68f9b73d68bd
+		summarizeBy: sum
+		sourceColumn: PERSON
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PERSON NAME'
+		dataType: string
+		lineageTag: 676797bf-d034-475b-80f5-40a9cc8c2005
+		summarizeBy: none
+		sourceColumn: PERSON NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ASSIGNMENT NUMBER'
+		dataType: string
+		lineageTag: 087976da-d4fa-45bf-a0d0-bf5aeae34d8c
+		summarizeBy: none
+		sourceColumn: ASSIGNMENT NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ASSIGNMENT STATUS'
+		dataType: string
+		lineageTag: 94721916-e862-4428-8626-67280cc016f3
+		summarizeBy: none
+		sourceColumn: ASSIGNMENT STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PRIMARY ASSIGNMENT'
+		dataType: string
+		lineageTag: f7b4c238-17a6-499a-b361-2d36221b0958
+		summarizeBy: none
+		sourceColumn: PRIMARY ASSIGNMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMPLOYEE CATEGORY'
+		dataType: string
+		lineageTag: 8ffad80c-740c-440a-a618-14b5fb125200
+		summarizeBy: none
+		sourceColumn: EMPLOYEE CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMPLOYMENT CATEGORY'
+		dataType: string
+		lineageTag: f1e908bc-ef98-42d5-a412-f882cdb4c593
+		summarizeBy: none
+		sourceColumn: EMPLOYMENT CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB NAME'
+		dataType: string
+		lineageTag: 037da0fe-3eb5-4790-b7e6-e5d0c3e5b178
+		summarizeBy: none
+		sourceColumn: JOB NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DEPT NAME'
+		dataType: string
+		lineageTag: 7a3518fb-eb9a-4ad8-aaa9-78fe0759b26a
+		summarizeBy: none
+		sourceColumn: DEPT NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column VP
+		dataType: string
+		lineageTag: a6e35d60-8f3e-4be3-86fd-afe1f518cde2
+		summarizeBy: none
+		sourceColumn: VP
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCHOOL
+		dataType: string
+		lineageTag: 7ffd8d97-9830-4f46-881f-4a49c7703586
+		summarizeBy: none
+		sourceColumn: SCHOOL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GRADE CODE'
+		dataType: string
+		lineageTag: 3ca92199-8f4c-4d4b-b77c-a90b69373f23
+		summarizeBy: none
+		sourceColumn: GRADE CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAYROLL
+		dataType: string
+		lineageTag: 54557142-6e71-4fa0-b345-ee762fadfdf1
+		summarizeBy: none
+		sourceColumn: PAYROLL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NORMAL HOURS'
+		dataType: int64
+		formatString: 0
+		lineageTag: 68cf4bb2-4923-4115-9d27-3d92f8cee03b
+		summarizeBy: sum
+		sourceColumn: NORMAL HOURS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SALARY AMOUNT'
+		dataType: double
+		lineageTag: 2ec61524-1fcc-4780-8b3c-2dcba1041764
+		summarizeBy: sum
+		sourceColumn: SALARY AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CHEQUE DATE'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 136ea4e7-8da5-4a00-a9c1-ca3f2f9781e8
+		summarizeBy: none
+		sourceColumn: CHEQUE DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'DATE EARNED'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 0c278201-cdc4-48a4-82d2-b17eecb1de45
+		summarizeBy: none
+		sourceColumn: DATE EARNED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PAYMENT_TYPE
+		dataType: string
+		lineageTag: 2a123c37-30d6-49a7-bde8-63ce9ba52240
+		summarizeBy: none
+		sourceColumn: PAYMENT_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column REASON
+		dataType: string
+		lineageTag: a2f3d3d3-a268-4363-9d9f-90ab1ebf19d7
+		summarizeBy: none
+		sourceColumn: REASON
+
+		annotation SummarizationSetBy = Automatic
+
+	column AMOUNT
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: db4298a0-9779-478e-895e-6ba8abe0f60f
+		summarizeBy: sum
+		sourceColumn: AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column FUND
+		dataType: int64
+		formatString: 0
+		lineageTag: 126429c2-61b7-4e6c-9b64-068748104c2b
+		summarizeBy: sum
+		sourceColumn: FUND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORG
+		dataType: int64
+		formatString: 0
+		lineageTag: dbdf3668-3554-4409-977b-86e1d410c14e
+		summarizeBy: sum
+		sourceColumn: ORG
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACCOUNT
+		dataType: int64
+		formatString: 0
+		lineageTag: 04c25b41-5cef-4ad3-9c40-3ef00e5f4ae3
+		summarizeBy: sum
+		sourceColumn: ACCOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bd8bbf5-f6e3-46c0-9012-31795a77bf12
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Additional Pay Extract' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/pjt79774_creighton_edu/Documents/HR%20Reports%20-%20Secured/data/CRUNV%20Additional_Interim_Incentive%20Pay%20Report_CRUNV_ADDITIONAL_INTERIM_INCENTIVE_PAY_REPORT.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"PERSON", type text}, {"PERSON NAME", type text}, {"ASSIGNMENT NUMBER", type text}, {"ASSIGNMENT STATUS", type text}, {"PRIMARY ASSIGNMENT", type text}, {"EMPLOYEE CATEGORY", type text}, {"EMPLOYMENT CATEGORY", type text}, {"JOB NAME", type text}, {"DEPT NAME", type text}, {"VP", type text}, {"SCHOOL", type text}, {"GRADE CODE", type text}, {"PAYROLL", type text}, {"NORMAL HOURS", Int64.Type}, {"Column15", type any}, {"SALARY AMOUNT", type number}, {"CHEQUE DATE", type date}, {"DATE EARNED", type date}, {"PAYMENT_TYPE", type text}, {"REASON", type text}, {"AMOUNT", type number}, {"FUND", Int64.Type}, {"ORG", Int64.Type}, {"ACCOUNT", Int64.Type}}),
+				    #"Removed Top Rows" = Table.Skip(#"Changed Type",1),
+				    #"Removed Columns" = Table.RemoveColumns(#"Removed Top Rows",{"Column15"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Removed Columns","CRUNV ","",Replacer.ReplaceText,{"PAYMENT_TYPE"}),
+				    #"Extracted Text After Delimiter" = Table.TransformColumns(#"Replaced Value", {{"DEPT NAME", each Text.AfterDelimiter(_, " "), type text}}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Extracted Text After Delimiter","CRUNV ","",Replacer.ReplaceText,{"REASON"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","CFE","Center for Faculty Excellence",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","ClinAff","Health Sciences Multicultural & Community Affairs",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","EDI","Equity, Diversity & Inclusion",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","GENC","General Counsel",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","HR","Human Resources",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Replaced Value6","JesCom","Jesuit Community",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value8" = Table.ReplaceValue(#"Replaced Value7","Law School","Law",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value9" = Table.ReplaceValue(#"Replaced Value8","Phoenix","Phoenix Alliance",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value10" = Table.ReplaceValue(#"Replaced Value9","PRES","Office of the President",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value11" = Table.ReplaceValue(#"Replaced Value10","Provost","Office of the Provost",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value12" = Table.ReplaceValue(#"Replaced Value11","SueSucs","Student Success",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value13" = Table.ReplaceValue(#"Replaced Value12","UCOM","University Communications",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value14" = Table.ReplaceValue(#"Replaced Value13","VPEM","Enrollment Management",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value15" = Table.ReplaceValue(#"Replaced Value14","VPFN","Finance",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value16" = Table.ReplaceValue(#"Replaced Value15","VPGE","Global Engagement",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value17" = Table.ReplaceValue(#"Replaced Value16","VPIT","Information Technology",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value18" = Table.ReplaceValue(#"Replaced Value17","VPLS","Library Services",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value19" = Table.ReplaceValue(#"Replaced Value18","VPMM","Mission & Ministry",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value20" = Table.ReplaceValue(#"Replaced Value19","VPSL","Student Life",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value21" = Table.ReplaceValue(#"Replaced Value20","VPUR","University Relations",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value22" = Table.ReplaceValue(#"Replaced Value21","CollProCE","College of Professional & Continuing Eduction",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value23" = Table.ReplaceValue(#"Replaced Value22","VPAA","Academic Affairs",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Added Index" = Table.AddIndexColumn(#"Replaced Value23", "Index", 0, 1, Int64.Type),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Index",{{"PERSON", Int64.Type}}),
+				    #"Replaced Value24" = Table.ReplaceValue(#"Changed Type1","Additional Duties","General",Replacer.ReplaceText,{"REASON"}),
+				    #"Replaced Value25" = Table.ReplaceValue(#"Replaced Value24","Special Pay Sup","Supplemental Earnings",Replacer.ReplaceText,{"PAYMENT_TYPE"}),
+				    #"Replaced Value26" = Table.ReplaceValue(#"Replaced Value25","Interim pay","Interim Payments",Replacer.ReplaceText,{"PAYMENT_TYPE"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Replaced Value26", each true)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

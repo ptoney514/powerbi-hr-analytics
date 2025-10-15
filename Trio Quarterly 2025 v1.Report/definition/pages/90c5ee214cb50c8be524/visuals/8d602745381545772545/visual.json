@@ -1,0 +1,805 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "8d602745381545772545",
+  "position": {
+    "x": 488,
+    "y": 72,
+    "z": 3000,
+    "height": 632,
+    "width": 784,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Common Report Terms and Definitions",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#094780"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Merit & Phase 1 Increases",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Description used for Merit and Phase 1 market increases awarded effective 9/23/2023 for non-exempt employees and 10/1/2023 for exempt employees. Because the effective date of merit and Phase 1 market increases are the same day, the increases are not able to be broken out into separate components.",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Phase 2 Increases ",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Description used for Phase 2 market increases awarded effective 7/1/2024 for non-exempt employees and 7/1/2024 for exempt employees.",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Merit & Phase 3 Increases ",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Description used for Merit and Phase 3 market increases awarded effective 9/21/2023 for non-exempt employees and 10/1/2023 for exempt employees. Because the effective date of merit and Phase 3 market increases are the same day, the increases are not able to be broken out into separate components.",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Promotions",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Description used for an increase due to a job change within the same department.",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Transfers",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10.5pt"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Description used for an increase due to a job change to a different department. ",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Working Hours Changes",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10.5pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Description used when an employee's pay rate remains the same but there is an increase in salary due to a change in working hours.",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Salary Changes ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10.5pt",
+                      "color": "#151515"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Description used for increases for reasons other than merit, promotions, transfers or a change in working hours.",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Additional Duties",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#151515"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Payments for an increase in job content value for a specified period outside the scope of an employee’s core responsibilities, which does not fall under the scope of an interim assignment or an on-going position change. ",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Includes payments for administrative duties, chief resident roles, clinic/weekend coverage/beeper call, course development work, educational mentors, faculty overload, clinic coverage, independent study programs, notetaker roles, ratio studiorum advisors, payments for seminars/workshops, summer research, lump sums in lieu of merit increases, and general additional duties.",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Supplemental Earnings ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#151515"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Payments for incentives or allowances. Includes payments for athletic bonuses, hiring bonuses, incentive bonuses, recognition bonuses, retention bonuses, car allowances, serving as a research study participant, relocation, sabbatical pay, settlement/separation payments, and emergency fund payments.",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Interim Payments",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#151515"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Payments for assuming full or partial responsibilities of another position while covering for either a leave of absence or vacant position. Duration typically extends between 3 and 12 months.",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Assignment Categories",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12px"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Creighton employment assignment categories (as applicable):",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "9pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "CWS",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": " - Federal work study student workers",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ],
+                "listType": "bullet",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "F09",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": " - Full time 9-month benefit-eligible employee",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "F10",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": " - Full time 10-month benefit-eligible employee",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "F11",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": " - Full time 11-month benefit-eligible employee",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "F12 ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "- Full time 12-month benefit-eligible employee",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "HSR",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": " - Residents",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "NBE",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": " - Non benefit eligible employee",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "PRN",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": " - Pro re nata ‘as needed’ employee",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "PT09",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": " - Part time 9-month benefit-eligible employee",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "PT10",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": " - Part time 10-month benefit-eligible employee",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "PT11",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "- Part time 11-month benefit-eligible employee",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "PT12",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "- Part time 12-month benefit-eligible employee",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "SUE ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "- Student worker (not federal work study)",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "TEMP",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": " – Temporary worker ",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#151515"
+                    }
+                  },
+                  {
+                    "value": "​",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

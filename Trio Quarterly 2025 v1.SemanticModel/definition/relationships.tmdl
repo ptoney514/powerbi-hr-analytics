@@ -1,0 +1,40 @@
+relationship 8b9fe1b3-639e-b29d-8ec9-02fe9b4a9c09
+	fromColumn: '(Active) Job Details'.'Report Period END DATE'
+	toColumn: 'Date (Report End)'.Date
+
+relationship 811754ba-4653-264d-deb3-a85c2f3d90d0
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: '(Active) Orgs'.'Dept Num'
+	toColumn: '(Active) Job Details'.'Dept Num'
+
+relationship d01a07b9-3cd5-bddc-2819-2f0c7b551a66
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: '(Active) Employee Details'.'Empl num'
+	toColumn: '(Active) Job Details'.'Empl num'
+
+relationship da445883-87c6-b865-f517-c1e820233d13
+	fromColumn: 'Positions (Taleo)'.'Req. Creation Date'
+	toColumn: 'Date (Report End)'.Date
+
+relationship 41b315b2-ecb5-d26e-9bbe-1302b7470f5f
+	fromColumn: 'Salary Increases'.'Salary Change Date'
+	toColumn: 'Date (Report End)'.Date
+
+relationship f117626e-6e68-2459-a8f6-3b68793ab95f
+	fromColumn: '(Terms) Employee Details'.'Term Date'
+	toColumn: 'Date (Report End)'.Date
+
+relationship 5ea7a88f-aabf-1be4-097c-9158009c9e85
+	fromColumn: 'Terms Since 2017'.'Term Date'
+	toColumn: 'Date (Report End)'.Date
+
+relationship AutoDetected_46e9dbff-3976-47ae-b2b3-879a8ed6cd4d
+	fromColumn: 'Additional Pay Extract'.'ASSIGNMENT NUMBER'
+	toColumn: Employee.'ASSIGNMENT NUMBER'
+
+relationship bc54dca7-1d2e-26c6-bd22-3bcf2176fada
+	fromColumn: 'Additional Pay Extract'.'DATE EARNED'
+	toColumn: 'Date (Report End)'.Date
+

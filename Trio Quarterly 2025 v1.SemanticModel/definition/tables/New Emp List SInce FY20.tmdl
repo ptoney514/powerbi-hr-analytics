@@ -1,0 +1,254 @@
+table 'New Emp List SInce FY20'
+	lineageTag: 40da7e50-aa23-4629-b609-ba666dfcdf7f
+
+	column 'END DATE'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9086daf8-05c1-4644-9ad6-0573df583013
+		summarizeBy: none
+		sourceColumn: END DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LOS
+		dataType: double
+		lineageTag: 3db74271-2687-48fe-8d3b-bc203d96cb74
+		summarizeBy: sum
+		sourceColumn: LOS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'LOS Band'
+		dataType: string
+		lineageTag: c3f85f39-59dc-4150-9335-ea18586dd110
+		summarizeBy: none
+		sourceColumn: LOS Band
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Empl num'
+		dataType: int64
+		formatString: 0
+		lineageTag: b232ca2a-7577-4721-bc4d-74b87c8bbbfc
+		summarizeBy: sum
+		sourceColumn: Empl num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Net ID'
+		dataType: string
+		lineageTag: f5f9fcdf-4fb6-4fb6-932c-cad6de97275d
+		summarizeBy: none
+		sourceColumn: Net ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Name'
+		dataType: string
+		lineageTag: bb5daee9-70fd-4946-a303-66a116917972
+		summarizeBy: none
+		sourceColumn: Last Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First Name'
+		dataType: string
+		lineageTag: 10072ee7-76ec-40ba-8b26-314418f19aca
+		summarizeBy: none
+		sourceColumn: First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 194f336b-b4c8-404f-be04-c8cb6e6c5481
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Name'
+		dataType: string
+		lineageTag: 432df61f-7048-46b2-9678-42d2b9a21cea
+		summarizeBy: none
+		sourceColumn: Job Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Type'
+		dataType: string
+		lineageTag: c52b1799-4e02-49ad-9080-c14ba7099998
+		summarizeBy: none
+		sourceColumn: Person Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Assignment Category Code'
+		dataType: string
+		lineageTag: 97ff3c42-adf5-4a5f-994b-a1121a017706
+		summarizeBy: none
+		sourceColumn: Assignment Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grade Code'
+		dataType: string
+		lineageTag: cdbf3331-a033-478a-88c9-c780a4907841
+		summarizeBy: none
+		sourceColumn: Grade Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hourly/Salaried
+		dataType: string
+		lineageTag: c7632e8e-d113-465b-98f5-2b7ddf9ba7d8
+		summarizeBy: none
+		sourceColumn: Hourly/Salaried
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Organization Name'
+		dataType: string
+		lineageTag: 78c662a6-8e5b-42b3-90cb-379627ffdaf7
+		summarizeBy: none
+		sourceColumn: Organization Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dept Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 71fdbae8-ab8f-4598-9f6d-7beace14d937
+		summarizeBy: sum
+		sourceColumn: Dept Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New VP'
+		dataType: string
+		lineageTag: d3b76835-c0fe-4a5f-be78-e3f3a688ddab
+		summarizeBy: none
+		sourceColumn: New VP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New School'
+		dataType: string
+		lineageTag: ee2d18c7-63b5-4f53-8269-bc960d7ee4c0
+		summarizeBy: none
+		sourceColumn: New School
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Employee Ethnicity'
+		dataType: string
+		lineageTag: a9c571ba-372c-457f-8693-4b0b2463b58e
+		summarizeBy: none
+		sourceColumn: Employee Ethnicity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Hire Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 943d0ecd-8056-43ca-80fe-9f289a9d02e2
+		summarizeBy: none
+		sourceColumn: Current Hire Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 39317f72-5e00-47fc-8e25-6c8e884669b0
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age Band'
+		dataType: string
+		lineageTag: 25e4c5d0-7248-410d-b220-d53c97a5f690
+		summarizeBy: none
+		sourceColumn: Age Band
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: 798a3353-e39b-4fa5-811d-7de4bd86f6c0
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column23
+		dataType: string
+		lineageTag: 8c2d03ef-d915-4156-b92d-df7cec34e55b
+		summarizeBy: none
+		sourceColumn: Column23
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column24
+		dataType: string
+		lineageTag: ba53d69a-789c-4298-86b9-7bf1f370b33c
+		summarizeBy: none
+		sourceColumn: Column24
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column25
+		dataType: string
+		lineageTag: a18e19ba-ae0a-4296-8a5a-1c89096ff689
+		summarizeBy: none
+		sourceColumn: Column25
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column26
+		dataType: string
+		lineageTag: fee670be-1ed0-457e-802d-bd29d4a81dcc
+		summarizeBy: none
+		sourceColumn: Column26
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column27
+		dataType: string
+		lineageTag: f220ba30-9766-42e5-b11a-1ddd1cd52144
+		summarizeBy: none
+		sourceColumn: Column27
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column28
+		dataType: string
+		lineageTag: 8388a8f0-46cd-4728-a609-0db767d0207b
+		summarizeBy: none
+		sourceColumn: Column28
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'New Emp List SInce FY20' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/ted72647_creighton_edu/Documents/New%20Emp%20List%20since%20FY20%20to%20Q1FY25%201031%20PT.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"END DATE", type date}, {"LOS", type number}, {"LOS Band", type text}, {"Empl num", Int64.Type}, {"Net ID", type text}, {"Last Name", type text}, {"First Name", type text}, {"Gender", type text}, {"Job Name", type text}, {"Person Type", type text}, {"Assignment Category Code", type text}, {"Grade Code", type text}, {"Hourly/Salaried", type text}, {"Organization Name", type text}, {"Dept Num", Int64.Type}, {"New VP", type text}, {"New School", type text}, {"Employee Ethnicity", type text}, {"Current Hire Date", type date}, {"Age", Int64.Type}, {"Age Band", type text}, {"Location", type text}, {"Column23", type any}, {"Column24", type any}, {"Column25", type any}, {"Column26", type any}, {"Column27", type any}, {"Column28", type any}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each true)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

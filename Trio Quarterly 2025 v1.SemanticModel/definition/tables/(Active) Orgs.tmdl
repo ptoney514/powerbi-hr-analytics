@@ -1,0 +1,54 @@
+table '(Active) Orgs'
+	lineageTag: 21f9b9c7-10b2-4e63-86a7-2db2ad9b12ce
+
+	column 'Dept Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: c5d61f3b-ad44-410f-92fd-4125e436755e
+		summarizeBy: none
+		sourceColumn: Dept Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Organization Name'
+		dataType: string
+		lineageTag: c231cf5f-d29a-488a-a289-cc48ce6166d7
+		summarizeBy: none
+		sourceColumn: Organization Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New VP'
+		dataType: string
+		lineageTag: 24df0d00-a7c3-4594-9e94-8ea8102d2a53
+		summarizeBy: none
+		sourceColumn: New VP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New School'
+		dataType: string
+		lineageTag: c282ad7b-f6ff-49cd-bb4b-7d4b4b3be12d
+		summarizeBy: none
+		sourceColumn: New School
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '(Active) Orgs' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/ted72647_creighton_edu/Documents/New%20Emp%20List%20since%20FY20%20to%20Q1FY25%201031%20PT.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"END DATE", type date}, {"LOS", type number}, {"LOS Band", type text}, {"Empl num", Int64.Type}, {"Net ID", type text}, {"Last Name", type text}, {"First Name", type text}, {"Gender", type text}, {"Job Name", type text}, {"Person Type", type text}, {"Assignment Category Code", type text}, {"Grade Code", type text}, {"Hourly/Salaried", type text}, {"Organization Name", type text}, {"Dept Num", Int64.Type}, {"New VP", type text}, {"New School", type text}, {"Employee Ethnicity", type text}, {"Current Hire Date", type date}, {"Age", Int64.Type}, {"Age Band", type text}, {"Location", type text}, {"Column23", type any}, {"Column24", type any}, {"Column25", type any}, {"Column26", type any}, {"Column27", type any}, {"Column28", type any}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"LOS", "LOS Band", "Empl num", "Net ID", "Last Name", "First Name", "Gender", "Job Name", "Person Type", "Assignment Category Code", "Grade Code", "Hourly/Salaried", "END DATE"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Columns",{"Dept Num", "Organization Name", "New VP", "New School", "Employee Ethnicity", "Current Hire Date", "Age", "Age Band", "Location", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28"}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Reordered Columns",{"Employee Ethnicity", "Current Hire Date", "Age", "Age Band", "Location", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28"})
+				in
+				    #"Removed Columns1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

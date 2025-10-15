@@ -1,0 +1,441 @@
+table 'Emp List CLEANED'
+	lineageTag: 7fbcc893-32f5-4cb0-8cbd-4286d16444b4
+
+	measure 'Total FType' = SUMX('Emp List CLEANED', 'Emp List CLEANED'[Assignment Category Code])
+		formatString: 0
+		lineageTag: 30227c13-b978-4cc8-9530-956455fc2e2f
+
+	measure 'Count of Empl # for F12' =
+			
+			CALCULATE(
+				COUNTA('Emp List CLEANED'[Empl #]),
+				'Emp List CLEANED'[Assignment Category Code] IN { "F12" }
+			)
+		formatString: 0
+		lineageTag: 691a9be4-b5c2-4406-a092-36d9cbb0e675
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "FilteredMeasure"
+				}
+
+		changedProperty = FormatString
+
+	column Quarter
+		dataType: string
+		lineageTag: 1c40344f-5e84-4333-84a8-1b4f2e879636
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'END DATE'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2b1ca09e-2bd4-476f-9c39-ef76f78c40c8
+		summarizeBy: none
+		sourceColumn: END DATE
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ' LOS '
+		dataType: double
+		lineageTag: 7f2c8e25-34f1-4a6d-a04c-4ce4181bac40
+		summarizeBy: sum
+		sourceColumn: " LOS "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ' LOS Band '
+		dataType: string
+		lineageTag: e457d340-1739-4f05-a641-e5b883e3f017
+		summarizeBy: none
+		sourceColumn: " LOS Band "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Empl #'
+		dataType: int64
+		formatString: 0
+		lineageTag: e537b462-1f83-4367-afa2-b90d1da617c3
+		summarizeBy: sum
+		sourceColumn: Empl #
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Net ID'
+		dataType: string
+		lineageTag: 966f6f41-ffcb-4b89-90fb-52c8213c208e
+		summarizeBy: none
+		sourceColumn: Net ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Employee Full Name'
+		dataType: string
+		lineageTag: 8544a1ae-f668-40b4-8621-55d0288a2778
+		summarizeBy: none
+		sourceColumn: Employee Full Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Name'
+		dataType: string
+		lineageTag: 94faeabe-d6b2-40e9-90c0-ad6c3975883b
+		summarizeBy: none
+		sourceColumn: Last Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First Name'
+		dataType: string
+		lineageTag: 81497e89-2e5d-41bd-8356-ac50fc8532b0
+		summarizeBy: none
+		sourceColumn: First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 694ceb70-b111-4216-865d-3463f35cd48f
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Name'
+		dataType: string
+		lineageTag: 6ee3bd7d-9cfd-46ad-8029-9335b4c708fc
+		summarizeBy: none
+		sourceColumn: Job Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date of Position'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5023cc67-7c2b-4e8f-82b7-0e70d63f2560
+		summarizeBy: none
+		sourceColumn: Date of Position
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Person Type'
+		dataType: string
+		lineageTag: d8ecb699-36e1-45e0-b677-64961f702412
+		summarizeBy: none
+		sourceColumn: Person Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Assignment Category Code'
+		dataType: string
+		lineageTag: 678547fd-d9e7-4d5e-8ef9-71bc56da231a
+		summarizeBy: none
+		sourceColumn: Assignment Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grade Code'
+		dataType: string
+		lineageTag: 8822a58d-af01-48ad-bb57-98f931814db6
+		summarizeBy: none
+		sourceColumn: Grade Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FLSA Status'
+		dataType: string
+		lineageTag: 1165f11b-dbd2-4af8-9d34-c15954baecf9
+		summarizeBy: none
+		sourceColumn: FLSA Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New Salary'
+		dataType: double
+		lineageTag: 453817b4-0ac2-44ec-b5b2-eb1008c72d44
+		summarizeBy: sum
+		sourceColumn: New Salary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Annualized Salary'
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: aab85677-96f9-4d4c-a6b5-7956f7ef7fbe
+		summarizeBy: sum
+		sourceColumn: Annualized Salary
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hourly/Salaried
+		dataType: string
+		lineageTag: 382b0b18-d21c-42cd-a141-649f02ddbedb
+		summarizeBy: none
+		sourceColumn: Hourly/Salaried
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Working Hours'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4239a594-fe52-4645-a6b9-55bf15d174ed
+		summarizeBy: sum
+		sourceColumn: Working Hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VP Area'
+		dataType: string
+		lineageTag: 6f7fc16e-133c-4454-9bcb-74f15c3fbadf
+		summarizeBy: none
+		sourceColumn: VP Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column School
+		dataType: string
+		lineageTag: b772e435-2b98-48f0-9bfd-727643891094
+		summarizeBy: none
+		sourceColumn: School
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Organization Name'
+		dataType: string
+		lineageTag: 3d08ea39-1107-4b2a-98d5-4e62f28d2bd4
+		summarizeBy: none
+		sourceColumn: Organization Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dept Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: c9790d6b-7d6f-47f2-a892-69a2fd9a86a1
+		summarizeBy: sum
+		sourceColumn: Dept Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New VP'
+		dataType: string
+		lineageTag: 629579af-9d7a-42d2-9c9e-c1618c85e963
+		summarizeBy: none
+		sourceColumn: New VP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New School'
+		dataType: string
+		lineageTag: d866b7ba-9252-4f0b-ad99-44bd13e6f785
+		summarizeBy: none
+		sourceColumn: New School
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: d29b27f2-46ff-4858-8380-9541837b5655
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Manager Name'
+		dataType: string
+		lineageTag: 4b477e48-4d17-42a6-abf7-386d79430722
+		summarizeBy: none
+		sourceColumn: Manager Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Employee Ethnicity'
+		dataType: string
+		lineageTag: a869c70d-6489-4afd-8f3a-0d2444235a32
+		summarizeBy: none
+		sourceColumn: Employee Ethnicity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Enterprise Seniority Date - Original Hire Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1046ccea-87dd-4224-b016-f52b40ef65c0
+		summarizeBy: none
+		sourceColumn: Enterprise Seniority Date - Original Hire Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Current Hire Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d17b69f6-0c8a-40f0-b751-49c53071d9da
+		summarizeBy: none
+		sourceColumn: Current Hire Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: d0aeb812-e003-4cd4-86c0-70715db0b2d1
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age Band'
+		dataType: string
+		lineageTag: 6af9aa7d-6631-411c-99d9-c72fa27f5cb7
+		summarizeBy: none
+		sourceColumn: Age Band
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date of Birth'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f074f161-3619-4281-af7d-f6be23f228e0
+		summarizeBy: none
+		sourceColumn: Date of Birth
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Location2
+		dataType: string
+		lineageTag: 2d8dcebc-e358-4c32-841e-954c4f9a9da5
+		summarizeBy: none
+		sourceColumn: Location2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year' = IF(MONTH('Emp List CLEANED'[END DATE])<=6,"FY"&YEAR('Emp List CLEANED'[END DATE]),"FY"&YEAR('Emp List CLEANED'[END DATE])+1)
+		lineageTag: 82be0d51-cebf-4341-9c2b-ac4a5020324d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Quarter' = ```
+			
+			SWITCH(
+			    TRUE(),
+			    MONTH('Emp List CLEANED'[END DATE]) >= 7 && MONTH('Emp List CLEANED'[END DATE]) <= 9, "Q1",
+			    MONTH('Emp List CLEANED'[END DATE]) >= 10 && MONTH('Emp List CLEANED'[END DATE]) <= 12, "Q2",
+			    MONTH('Emp List CLEANED'[END DATE]) >= 1 && MONTH('Emp List CLEANED'[END DATE]) <= 3, "Q3",
+			    "Q4"
+			)
+			
+			```
+		lineageTag: 9b039107-62da-42de-b262-27d6b1877fd0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalYear_QTR = ```
+			
+			VAR FiscalYear = IF(MONTH('Emp List CLEANED'[END DATE]) <= 6, YEAR('Emp List CLEANED'[END DATE]), YEAR('Emp List CLEANED'[END DATE]) + 1)
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    MONTH('Emp List CLEANED'[END DATE]) >= 7 && MONTH('Emp List CLEANED'[END DATE]) <= 9, "FY" & FiscalYear & "_Q1",
+			    MONTH('Emp List CLEANED'[END DATE]) >= 10 && MONTH('Emp List CLEANED'[END DATE]) <= 12, "FY" & FiscalYear & "_Q2",
+			    MONTH('Emp List CLEANED'[END DATE]) >= 1 && MONTH('Emp List CLEANED'[END DATE]) <= 3, "FY" & FiscalYear & "_Q3",
+			    "FY" & FiscalYear & "_Q4"
+			)
+			
+			```
+		lineageTag: 24ad9be1-2935-49b0-830d-c37bc906454b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Assignment Category Name'
+		dataType: string
+		lineageTag: aa2ca811-257a-4396-8297-1bc5f93fe6a5
+		summarizeBy: none
+		sourceColumn: Assignment Category Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Emp List CLEANED' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/pjt79774_creighton_edu/Documents/Power%20BI/DataSources/Emp%20List%20since%20FY20%20to%20Q1FY25.xlsx"), null, true),
+				    #"Emp List CLEANED_Sheet" = Source{[Item="Emp List CLEANED",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Emp List CLEANED_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Quarter", type text}, {"END DATE", type date}, {" LOS ", type number}, {" LOS Band ", type text}, {"Empl #", Int64.Type}, {"Net ID", type text}, {"Employee Full Name", type text}, {"Last Name", type text}, {"First Name", type text}, {"Gender", type text}, {"Job Name", type text}, {"Date of Position", type date}, {"Person Type", type text}, {"Assignment Category Code", type text}, {"Grade Code", type text}, {"FLSA Status", type text}, {"New Salary", type number}, {"Annualized Salary", Int64.Type}, {"Hourly/Salaried", type text}, {"Working Hours", Int64.Type}, {"VP Area", type text}, {"School", type text}, {"Organization Name", type text}, {"Dept Num", Int64.Type}, {"New VP", type text}, {"New School", type text}, {"Location", type text}, {"Manager Name", type text}, {"Employee Ethnicity", type text}, {"Enterprise Seniority Date - Original Hire Date", type date}, {"Current Hire Date", type date}, {"Age", Int64.Type}, {"Age Band", type text}, {"Date of Birth", type date}, {"Location2", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","CFE","Center for Faculty Excellence",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","ClinAff","Health Sciences Multicultural & Community Affairs",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","EDI","Equity, Diversity & Inclusion",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","GENC","General Counsel",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","CFE","Center for Faculty Excellence",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","VPMM","Mission & Ministry",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","VPUR","University Relations",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Replaced Value6","VPSL","Student Life",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value8" = Table.ReplaceValue(#"Replaced Value7","VPEM","Enrollment Management",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value9" = Table.ReplaceValue(#"Replaced Value8","VPAA","Academic Affairs",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value10" = Table.ReplaceValue(#"Replaced Value9","VPIT","Information Technology",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value11" = Table.ReplaceValue(#"Replaced Value10","UCOM","University Communications",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value12" = Table.ReplaceValue(#"Replaced Value11","VPGE","Global Engagement",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value13" = Table.ReplaceValue(#"Replaced Value12","VPFN","Finance",Replacer.ReplaceText,{"School"}),
+				    #"Replaced Value14" = Table.ReplaceValue(#"Replaced Value13","HR","Human Resources",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value15" = Table.ReplaceValue(#"Replaced Value14","VPMM","Mission & Ministry",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value16" = Table.ReplaceValue(#"Replaced Value15","VPUR","University Relations",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value17" = Table.ReplaceValue(#"Replaced Value16","VPSL","Student Life",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value18" = Table.ReplaceValue(#"Replaced Value17","VPEM","Enrollment Management",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value19" = Table.ReplaceValue(#"Replaced Value18","VPLS","Library Services",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value20" = Table.ReplaceValue(#"Replaced Value19","CollProCE","College of Professional & Continuing Eduction",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value21" = Table.ReplaceValue(#"Replaced Value20","SueSucs","Student Success",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value22" = Table.ReplaceValue(#"Replaced Value21","VPIT","Information Technology",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value23" = Table.ReplaceValue(#"Replaced Value22","UCOM","University Communications",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value24" = Table.ReplaceValue(#"Replaced Value23","GENC","General Counsel",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value25" = Table.ReplaceValue(#"Replaced Value24","VPAA","Academic Affairs",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value26" = Table.ReplaceValue(#"Replaced Value25","CFE","Center for Faculty Excellence",Replacer.ReplaceText,{"New School"}),
+				    #"Replaced Value27" = Table.ReplaceValue(#"Replaced Value26","ClinAff","Health Sciences Multicultural & Community Affairs",Replacer.ReplaceText,{"Quarter"}),
+				    #"Replaced Value28" = Table.ReplaceValue(#"Replaced Value27","EDI","Equity, Diversity & Inclusion",Replacer.ReplaceText,{"Quarter"}),
+				    #"Replaced Value29" = Table.ReplaceValue(#"Replaced Value28","ClinAff","Health Sciences Multicultural & Community Affairs",Replacer.ReplaceText,{"New School"}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Replaced Value29", "Assignment Category Code", "Assignment Category Code - Copy"),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Duplicated Column",{"Quarter", "END DATE", " LOS ", " LOS Band ", "Empl #", "Net ID", "Employee Full Name", "Last Name", "First Name", "Gender", "Job Name", "Date of Position", "Person Type", "Assignment Category Code", "Assignment Category Code - Copy", "Grade Code", "FLSA Status", "New Salary", "Annualized Salary", "Hourly/Salaried", "Working Hours", "VP Area", "School", "Organization Name", "Dept Num", "New VP", "New School", "Location", "Manager Name", "Employee Ethnicity", "Enterprise Seniority Date - Original Hire Date", "Current Hire Date", "Age", "Age Band", "Date of Birth", "Location2"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns",{{"Assignment Category Code - Copy", "Assignment Category Name"}}),
+				    #"Replaced Value30" = Table.ReplaceValue(#"Renamed Columns","SUE","Student Worker",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value31" = Table.ReplaceValue(#"Replaced Value30","CWS","Federal Work Study Student",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value32" = Table.ReplaceValue(#"Replaced Value31","F09","Full Time Benefit Eligible",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value33" = Table.ReplaceValue(#"Replaced Value32","F10","Full Time Benefit Eligible",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value34" = Table.ReplaceValue(#"Replaced Value33","F11","Full Time Benefit Eligible",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value35" = Table.ReplaceValue(#"Replaced Value34","F12","Full Time Benefit Eligible",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value36" = Table.ReplaceValue(#"Replaced Value35","HSR","Resident",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value37" = Table.ReplaceValue(#"Replaced Value36","NBE","Non-Benefit Eligible",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value38" = Table.ReplaceValue(#"Replaced Value37","PT09","Part Time Benefit Eligible",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value39" = Table.ReplaceValue(#"Replaced Value38","PT10","Part Time Benefit Eligible",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value40" = Table.ReplaceValue(#"Replaced Value39","PT11","Part Time Benefit Eligible",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value41" = Table.ReplaceValue(#"Replaced Value40","PT12","Part Time Benefit Eligible",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value42" = Table.ReplaceValue(#"Replaced Value41","TEMP","Temporary Worker",Replacer.ReplaceText,{"Assignment Category Name"}),
+				    #"Replaced Value43" = Table.ReplaceValue(#"Replaced Value42","F","Female",Replacer.ReplaceText,{"Gender"}),
+				    #"Replaced Value44" = Table.ReplaceValue(#"Replaced Value43","M","Male",Replacer.ReplaceText,{"Gender"})
+				in
+				    #"Replaced Value44"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

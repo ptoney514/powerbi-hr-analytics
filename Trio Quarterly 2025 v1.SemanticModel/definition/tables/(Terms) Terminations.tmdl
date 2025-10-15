@@ -1,0 +1,95 @@
+table '(Terms) Terminations'
+	lineageTag: 07e6f7ce-dcf2-4aee-885d-eed31f2c8114
+
+	measure PercentTurnover_ByEmployeeType_FY = ```
+			
+			VAR FiscalStart = DATE(YEAR(TODAY()) - IF(MONTH(TODAY()) < 7, 1, 0), 7, 1)
+			VAR FiscalEnd = DATE(YEAR(TODAY()) - IF(MONTH(TODAY()) < 7, 1, 0) + 1, 6, 30)
+			
+			VAR TermCount = 
+			    CALCULATE(
+			        COUNT('(Terms) Employee Details'[Empl Num]),
+			        '(Terms) Terminations'[Term Date] <> BLANK(),
+			        '(Terms) Terminations'[Term Date] >= FiscalStart,
+			        '(Terms) Terminations'[Term Date] <= FiscalEnd
+			    )
+			
+			VAR EmployeeTypeCount = 
+			    CALCULATE(
+			        DISTINCTCOUNT('(Active) Employee Details'[Empl num]),
+			        'New Emp List SInce FY20'[Current Hire Date] <= FiscalEnd,
+			        OR('(Terms) Terminations'[Term Date] > FiscalEnd, '(Terms) Terminations'[Term Date] = BLANK()),
+			        '(Active) Job Details'[Person Type] = SELECTEDVALUE('(Active) Job Details'[Person Type], "Staff")
+			    )
+			
+			RETURN
+			    IF(EmployeeTypeCount > 0, DIVIDE(TermCount, EmployeeTypeCount), BLANK())
+			```
+		formatString: 0.00
+		lineageTag: 450aeb8b-0f5c-4f5f-8362-97c8312c1160
+
+	column 'Empl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: ee57b8e0-5fb1-4991-920f-e47aeedecf39
+		summarizeBy: sum
+		sourceColumn: Empl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Term Reason 1'
+		dataType: string
+		lineageTag: f8e47b2e-cb7b-4ba7-94de-667b4d217d85
+		summarizeBy: none
+		sourceColumn: Term Reason 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Term Reason 2'
+		dataType: string
+		lineageTag: 34fa11b5-35ad-4e93-a6b8-b371ce8df2cb
+		summarizeBy: none
+		sourceColumn: Term Reason 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Term Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 17971192-700f-4765-bc17-9ef0d9e42c82
+		summarizeBy: none
+		sourceColumn: Term Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Report Period Term Qtr End Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 60a4c40d-b85a-442e-a343-a7aae6de1c1f
+		summarizeBy: none
+		sourceColumn: Report Period Term Qtr End Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition '(Terms) Terminations' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/ted72647_creighton_edu/Documents/Terms%20Since%202017%20Detail%20PT.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Empl Num", Int64.Type}, {"VP Area", type text}, {"Benefit Program (Description)", type text}, {"School", type text}, {"Last Name", type text}, {"First Name", type text}, {"Middle Name", type text}, {"Display Name", type text}, {"Person Date of Birth", type date}, {"Gender", type text}, {"Ethnicity", type text}, {"Disabled", type text}, {"Hire Date", type date}, {"Term Reason 1", type text}, {"Term Reason 2", type text}, {"Term Date", type date}, {"Term Qtr End Date", type date}, {"User Person Type", type text}, {"Assignment Category", type text}, {"Grade", type text}, {"Faxc Staff", type text}, {"Job Name", type text}, {"Std Working Hours", Int64.Type}, {"Normal Working Hours", Int64.Type}, {"Hourly/Salaried", type text}, {"People Group", type text}, {"Dept Name", type text}, {"Location", type text}, {"Vet Status", type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([Assignment Category] <> null and [Assignment Category] <> "CWS" and [Assignment Category] <> "HSR" and [Assignment Category] <> "NBE" and [Assignment Category] <> "PRN" and [Assignment Category] <> "SUE" and [Assignment Category] <> "TEMP")),
+				    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows",{"VP Area", "Benefit Program (Description)", "School", "Last Name", "First Name", "Middle Name", "Display Name", "Gender", "Ethnicity", "Disabled", "Person Date of Birth", "Hire Date", "User Person Type", "Assignment Category", "Grade", "Faxc Staff", "Job Name", "Std Working Hours", "Normal Working Hours", "Hourly/Salaried", "People Group", "Dept Name", "Location", "Vet Status"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"Term Qtr End Date", "Report Period Term Qtr End Date"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Trio Quarterly 2025 v1"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0063577f-d10d-43d9-830c-b284d75ee4ea"
+  }
+}

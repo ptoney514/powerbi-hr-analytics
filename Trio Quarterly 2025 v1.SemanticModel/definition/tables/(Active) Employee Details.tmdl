@@ -1,0 +1,83 @@
+table '(Active) Employee Details'
+	lineageTag: eeaf2f98-d95f-4a73-b701-7efe4ee04a06
+
+	measure '(BE) Faculty Variant' = [(BE) Faculty] - [(BE) Faculty (Prev Year)]
+		formatString: 0
+		lineageTag: 8a50d1a6-e735-4f08-8cd5-f904d2a8734a
+
+	measure 'Federal Work Study' = ```
+			CALCULATE(
+			    COUNT('(Active) Job Details'[Empl num]), 
+			   '(Active) Job Details'[Assignment Eligibility] = "Resident"
+			    )
+			```
+		formatString: 0
+		lineageTag: ddd02cce-8aa2-4ff6-a6bf-700e633dbacf
+
+	column 'Empl num'
+		dataType: int64
+		formatString: 0
+		lineageTag: fdb7ac39-990d-468e-b64d-83441ca53a29
+		summarizeBy: none
+		sourceColumn: Empl num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Net ID'
+		dataType: string
+		lineageTag: 9e292fe1-b2d1-4dfb-9180-5abf78f87270
+		summarizeBy: none
+		sourceColumn: Net ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Name'
+		dataType: string
+		lineageTag: e2ef7cdd-2751-4fae-9c46-97b72b340829
+		summarizeBy: none
+		sourceColumn: Last Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First Name'
+		dataType: string
+		lineageTag: ff8a8816-11a3-46b4-a1de-19685b35d27a
+		summarizeBy: none
+		sourceColumn: First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 4a2335da-edcb-4083-b28f-94e4c797dc72
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Employee Ethnicity'
+		dataType: string
+		lineageTag: 37cf4413-60e7-4f7e-b300-dc95dfba16b5
+		summarizeBy: none
+		sourceColumn: Employee Ethnicity
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '(Active) Employee Details' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/ted72647_creighton_edu/Documents/New%20Emp%20List%20since%20FY20%20to%20Q1FY25%201031%20PT.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"END DATE", type date}, {"LOS", type number}, {"LOS Band", type text}, {"Empl num", Int64.Type}, {"Net ID", type text}, {"Last Name", type text}, {"First Name", type text}, {"Gender", type text}, {"Job Name", type text}, {"Person Type", type text}, {"Assignment Category Code", type text}, {"Grade Code", type text}, {"Hourly/Salaried", type text}, {"Organization Name", type text}, {"Dept Num", Int64.Type}, {"New VP", type text}, {"New School", type text}, {"Employee Ethnicity", type text}, {"Current Hire Date", type date}, {"Age", Int64.Type}, {"Age Band", type text}, {"Location", type text}, {"Column23", type any}, {"Column24", type any}, {"Column25", type any}, {"Column26", type any}, {"Column27", type any}, {"Column28", type any}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"END DATE", "LOS", "LOS Band", "Job Name", "Person Type", "Assignment Category Code", "Grade Code", "Hourly/Salaried", "Organization Name", "Dept Num", "New VP", "New School", "Current Hire Date", "Age", "Age Band", "Location", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Removed Columns","M","Male",Replacer.ReplaceText,{"Gender"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","F","Female",Replacer.ReplaceText,{"Gender"})
+				in
+				    #"Replaced Value1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

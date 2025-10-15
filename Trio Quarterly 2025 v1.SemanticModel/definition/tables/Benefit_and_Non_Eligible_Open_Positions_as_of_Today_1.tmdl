@@ -1,0 +1,202 @@
+table Benefit_and_Non_Eligible_Open_Positions_as_of_Today_1
+	lineageTag: 57b7c429-646c-46f8-8f16-c59586b6887f
+
+	measure Staff_Positions = IF(ISBLANK(SUM(Benefit_and_Non_Eligible_Open_Positions_as_of_Today_1[# Openings Left To Fill (Hired)])),0, SUM('Benefit_and_Non_Eligible_Open_Positions_as_of_Today_1'[# Openings Left To Fill (Hired)]))
+		formatString: 0
+		lineageTag: a24c770f-e0d3-45b1-b56b-a6f592deeb7a
+
+	measure Faculty_Positions = IF(ISBLANK(SUM(Benefit_and_Non_Eligible_Open_Positions_as_of_Today_1[# Openings Left To Fill (Hired)])),0, SUM('Benefit_and_Non_Eligible_Open_Positions_as_of_Today_1'[# Openings Left To Fill (Hired)]))
+		formatString: 0
+		lineageTag: 5169f73b-0fa6-416e-964e-d3d945ab0c76
+
+	column '# Requisitions'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3104c158-d590-431b-918b-6c7dc3f095a7
+		summarizeBy: sum
+		sourceColumn: # Requisitions
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Openings (Distinct)'
+		dataType: int64
+		formatString: 0
+		lineageTag: e75e486a-8a71-4db0-8007-4bb8ee773519
+		summarizeBy: sum
+		sourceColumn: # Openings (Distinct)
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Openings Left To Fill (Hired)'
+		dataType: int64
+		formatString: 0
+		lineageTag: f1b861c7-a129-4427-aab4-b1a715051c0e
+		summarizeBy: sum
+		sourceColumn: # Openings Left To Fill (Hired)
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Openings Left To Fill (Accepted)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9599723d-067e-43d9-a360-80f76f87a7cd
+		summarizeBy: sum
+		sourceColumn: # Openings Left To Fill (Accepted)
+
+		annotation SummarizationSetBy = Automatic
+
+	column ' # Hires'
+		dataType: int64
+		formatString: 0
+		lineageTag: c29f7bae-0ce6-4119-aa7e-f1365f6a303c
+		summarizeBy: sum
+		sourceColumn: " # Hires"
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Faculty / Staff'
+		dataType: string
+		lineageTag: fe87703b-85d6-4ce6-ab80-23c720027d84
+		summarizeBy: none
+		sourceColumn: Faculty / Staff
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FT / PT / Temp'
+		dataType: string
+		lineageTag: 534d5ca9-7f32-4015-91a1-7dd55a9a6273
+		summarizeBy: none
+		sourceColumn: FT / PT / Temp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Type'
+		dataType: string
+		lineageTag: 24c44789-de1b-4efa-b6f9-d51c483c71fb
+		summarizeBy: none
+		sourceColumn: Job Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Anticipated Salary'
+		dataType: string
+		lineageTag: 03a0cdb2-a492-4e44-9cb3-fd60a5854c06
+		summarizeBy: none
+		sourceColumn: Anticipated Salary
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Title (BL)'
+		dataType: string
+		lineageTag: 26a93c05-3e56-424f-8ca6-be56db4ff323
+		summarizeBy: none
+		sourceColumn: Title (BL)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Req. Identifier'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d62158f-22b8-434d-aeac-64eff8f228ac
+		summarizeBy: sum
+		sourceColumn: Req. Identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Template Title (BL)'
+		dataType: string
+		lineageTag: e17400ca-59ad-4152-b259-41f7edd4d582
+		summarizeBy: none
+		sourceColumn: Template Title (BL)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Grade'
+		dataType: string
+		lineageTag: ef4f312a-b37c-4f77-b9f0-1fbced45e513
+		summarizeBy: none
+		sourceColumn: Job Grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DEPARTMENT/ORG - Name'
+		dataType: string
+		lineageTag: 6587b18e-6b94-4d18-b1f2-6d070b20e1ef
+		summarizeBy: none
+		sourceColumn: DEPARTMENT/ORG - Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Status'
+		dataType: string
+		lineageTag: d2ec63c5-a268-457e-8ea4-bb5ce9e23de2
+		summarizeBy: none
+		sourceColumn: Current Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VP Area'
+		dataType: string
+		lineageTag: b5aef4ad-3253-4fe6-a77c-d8fc63a833e6
+		summarizeBy: none
+		sourceColumn: VP Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School/Org - Name'
+		dataType: string
+		lineageTag: 909067dc-a367-4d27-bd95-970c1aa47328
+		summarizeBy: none
+		sourceColumn: School/Org - Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Campus
+		dataType: string
+		lineageTag: f7e0d32c-820d-4f94-b81c-e21be207cfe1
+		summarizeBy: none
+		sourceColumn: Campus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Recruiter Name'
+		dataType: string
+		lineageTag: 65a5a011-0001-4a03-be13-ab6ef75fff8f
+		summarizeBy: none
+		sourceColumn: Recruiter Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Export Date'
+		dataType: dateTime
+		formatString: m/d/yyyy
+		lineageTag: 0042f5fc-899e-40ea-9cb0-c51a7fb81031
+		summarizeBy: none
+		sourceColumn: Export Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ReqTitle = Benefit_and_Non_Eligible_Open_Positions_as_of_Today_1[Req. Identifier]&" "&Benefit_and_Non_Eligible_Open_Positions_as_of_Today_1[Title (BL)]
+		lineageTag: b9231a49-2100-47cc-8fa9-2ebe88056fbb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Benefit_and_Non_Eligible_Open_Positions_as_of_Today_1 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/pjt79774_creighton_edu/Documents/HR%20Reports%20-%20Secured/data/Open%20Positions%20Daily%20Report.xlsx"), null, true),
+				    Benefit_and_Non_Eligible_Open_Positions_as_of_Today_1_Table = Source{[Item="Benefit_and_Non_Eligible_Open_Positions_as_of_Today_1",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(Benefit_and_Non_Eligible_Open_Positions_as_of_Today_1_Table,{{"# Requisitions", Int64.Type}, {"# Openings (Distinct)", Int64.Type}, {"# Openings Left To Fill (Hired)", Int64.Type}, {"# Openings Left To Fill (Accepted)", Int64.Type}, {" # Hires", Int64.Type}, {"Faculty / Staff", type text}, {"FT / PT / Temp", type text}, {"Job Type", type text}, {"Anticipated Salary", type text}, {"Title (BL)", type text}, {"Req. Identifier", Int64.Type}, {"Template Title (BL)", type text}, {"Job Grade", type text}, {"DEPARTMENT/ORG - Name", type text}, {"Current Status", type text}, {"VP Area", type text}, {"School/Org - Name", type text}, {"Campus", type text}, {"Recruiter Name", type text}, {"Export Date", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

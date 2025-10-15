@@ -1,0 +1,174 @@
+table '(Active) Job Details'
+	lineageTag: ba51c31e-af39-4fcf-aeb8-833b8faf40ba
+
+	column 'Report Period END DATE'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 4aefacd8-d5ce-4953-8e73-c2b58e64ad78
+		summarizeBy: none
+		sourceColumn: Report Period END DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Empl num'
+		dataType: int64
+		formatString: 0
+		lineageTag: ac09c98e-21f8-464b-82c1-c06c91a6149a
+		summarizeBy: none
+		sourceColumn: Empl num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Name'
+		dataType: string
+		lineageTag: 06ca77c1-f797-4147-b4b7-7e80e5a3b9db
+		summarizeBy: none
+		sourceColumn: Job Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Type'
+		dataType: string
+		lineageTag: 5029e31f-70ab-4911-be08-d8967b8ab96d
+		summarizeBy: none
+		sourceColumn: Person Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Assignment Category Code'
+		dataType: string
+		lineageTag: 220a6c8b-ff9d-4ab2-8d2f-6df7c9b1011a
+		summarizeBy: none
+		sourceColumn: Assignment Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grade Code'
+		dataType: string
+		lineageTag: 6fa6feb1-cc70-4ed4-9b7a-ad83653be2e6
+		summarizeBy: none
+		sourceColumn: Grade Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hourly/Salaried
+		dataType: string
+		lineageTag: 305d0767-de0a-4cd8-b84b-50dc148f071e
+		summarizeBy: none
+		sourceColumn: Hourly/Salaried
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dept Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 37f7b0df-0456-4be5-b3d7-c6c422275a9a
+		summarizeBy: none
+		sourceColumn: Dept Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Hire Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8b1b303f-672d-4ae7-9ae1-b0b59471d6fd
+		summarizeBy: none
+		sourceColumn: Current Hire Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: e80193f1-e9c8-4a9b-9d08-d845f95840b2
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age Band'
+		dataType: string
+		lineageTag: 283ae3e3-7bf1-4a4e-8e8c-80b5ff901df3
+		summarizeBy: none
+		sourceColumn: Age Band
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: 9552e153-2b25-4ab3-8022-a04c61b25bcf
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Assignment Eligibility'
+		dataType: string
+		lineageTag: 2b823c0f-5ecc-4139-b72d-73682214f615
+		summarizeBy: none
+		sourceColumn: Assignment Eligibility
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Benefit Eligibility'
+		dataType: string
+		lineageTag: f87f4841-e69c-4103-9035-c4497a1dc40e
+		summarizeBy: none
+		sourceColumn: Benefit Eligibility
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '(Active) Job Details' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/ted72647_creighton_edu/Documents/New%20Emp%20List%20since%20FY20%20to%20Q1FY25%201031%20PT.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"END DATE", type date}, {"LOS", type number}, {"LOS Band", type text}, {"Empl num", Int64.Type}, {"Net ID", type text}, {"Last Name", type text}, {"First Name", type text}, {"Gender", type text}, {"Job Name", type text}, {"Person Type", type text}, {"Assignment Category Code", type text}, {"Grade Code", type text}, {"Hourly/Salaried", type text}, {"Organization Name", type text}, {"Dept Num", Int64.Type}, {"New VP", type text}, {"New School", type text}, {"Employee Ethnicity", type text}, {"Current Hire Date", type date}, {"Age", Int64.Type}, {"Age Band", type text}, {"Location", type text}, {"Column23", type any}, {"Column24", type any}, {"Column25", type any}, {"Column26", type any}, {"Column27", type any}, {"Column28", type any}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"LOS", "LOS Band"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Columns",{"Empl num", "END DATE", "Net ID", "Last Name", "First Name", "Gender", "Job Name", "Person Type", "Assignment Category Code", "Grade Code", "Hourly/Salaried", "Organization Name", "Dept Num", "New VP", "New School", "Employee Ethnicity", "Current Hire Date", "Age", "Age Band", "Location", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28"}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Reordered Columns",{"Net ID", "Last Name", "First Name", "Gender"}),
+				    #"Reordered Columns1" = Table.ReorderColumns(#"Removed Columns1",{"END DATE", "Empl num", "Job Name", "Person Type", "Assignment Category Code", "Grade Code", "Hourly/Salaried", "Organization Name", "Dept Num", "New VP", "New School", "Employee Ethnicity", "Current Hire Date", "Age", "Age Band", "Location", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28"}),
+				    #"Removed Columns2" = Table.RemoveColumns(#"Reordered Columns1",{"Organization Name", "New VP", "New School", "Employee Ethnicity", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28"}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Removed Columns2", "Assignment Category Code", "Assignment Category Code - Copy"),
+				    #"Reordered Columns2" = Table.ReorderColumns(#"Duplicated Column",{"END DATE", "Empl num", "Job Name", "Person Type", "Assignment Category Code", "Assignment Category Code - Copy", "Grade Code", "Hourly/Salaried", "Dept Num", "Current Hire Date", "Age", "Age Band", "Location"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns2",{{"Assignment Category Code - Copy", "Assignment Eligibility"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns","F12","Benefit Eligible",Replacer.ReplaceText,{"Assignment Eligibility"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","SUE","Student Worker",Replacer.ReplaceText,{"Assignment Eligibility"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","HSR","Resident",Replacer.ReplaceText,{"Assignment Eligibility"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","CWS","Federal Work Study",Replacer.ReplaceText,{"Assignment Eligibility"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","NBE","Not Benefit Eligible",Replacer.ReplaceText,{"Assignment Eligibility"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","F09","Benefit Eligible",Replacer.ReplaceText,{"Assignment Eligibility"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","F10","Benefit Eligible",Replacer.ReplaceText,{"Assignment Eligibility"}),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Replaced Value6","PT12","Benefit Eligible",Replacer.ReplaceText,{"Assignment Eligibility"}),
+				    #"Replaced Value8" = Table.ReplaceValue(#"Replaced Value7","F11","Benefit Eligible",Replacer.ReplaceText,{"Assignment Eligibility"}),
+				    #"Replaced Value9" = Table.ReplaceValue(#"Replaced Value8","PT9","Benefit Eligible",Replacer.ReplaceText,{"Assignment Eligibility"}),
+				    #"Replaced Value10" = Table.ReplaceValue(#"Replaced Value9","PT10","Benefit Eligible",Replacer.ReplaceText,{"Assignment Eligibility"}),
+				    #"Replaced Value11" = Table.ReplaceValue(#"Replaced Value10","PT11","Benefit Eligible",Replacer.ReplaceText,{"Assignment Eligibility"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Replaced Value11", each true),
+				    #"Duplicated Column1" = Table.DuplicateColumn(#"Filtered Rows", "Assignment Eligibility", "Assignment Eligibility - Copy"),
+				    #"Reordered Columns3" = Table.ReorderColumns(#"Duplicated Column1",{"END DATE", "Empl num", "Job Name", "Person Type", "Assignment Category Code", "Assignment Eligibility", "Assignment Eligibility - Copy", "Grade Code", "Hourly/Salaried", "Dept Num", "Current Hire Date", "Age", "Age Band", "Location"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Reordered Columns3",{{"Assignment Eligibility - Copy", "Benefit Eligibility"}}),
+				    #"Replaced Value12" = Table.ReplaceValue(#"Renamed Columns1","TEMP","Not Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value13" = Table.ReplaceValue(#"Replaced Value12","Student Worker","Not Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value14" = Table.ReplaceValue(#"Replaced Value13","Resident","Not Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value15" = Table.ReplaceValue(#"Replaced Value14","Federal Work Study","Not Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Replaced Value16" = Table.ReplaceValue(#"Replaced Value15","PRN","Not Benefit Eligible",Replacer.ReplaceText,{"Benefit Eligibility"}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Replaced Value16",{{"END DATE", "Report Period END DATE"}}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Renamed Columns2", each true),
+				    #"Duplicated Column2" = Table.DuplicateColumn(#"Filtered Rows1", "Report Period END DATE", "Report Period END DATE - Copy"),
+				    #"Reordered Columns4" = Table.ReorderColumns(#"Duplicated Column2",{"Report Period END DATE - Copy", "Report Period END DATE", "Empl num", "Job Name", "Person Type", "Assignment Category Code", "Assignment Eligibility", "Benefit Eligibility", "Grade Code", "Hourly/Salaried", "Dept Num", "Current Hire Date", "Age", "Age Band", "Location"}),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Reordered Columns4",{{"Report Period END DATE - Copy", "Report FY Date - Calculated"}}),
+				    #"Removed Columns3" = Table.RemoveColumns(#"Renamed Columns3",{"Report FY Date - Calculated"})
+				in
+				    #"Removed Columns3"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

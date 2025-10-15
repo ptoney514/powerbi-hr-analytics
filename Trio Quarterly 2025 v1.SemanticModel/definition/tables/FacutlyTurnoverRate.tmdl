@@ -1,0 +1,85 @@
+table FacutlyTurnoverRate
+	lineageTag: 98fc6196-ef52-4e3c-8b14-ff92275df6e7
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 94b20539-45c8-4b12-bda0-f2fe23ad13fe
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Turnover Rate'
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 05c8d32e-5d9c-4dce-93a1-83db95251c9e
+		summarizeBy: sum
+		sourceColumn: Turnover Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 0454b816-64e5-41a9-a531-4c71dd1197d7
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Rate' = IF('FacutlyTurnoverRate'[Status] = "Actual", 'FacutlyTurnoverRate'[Turnover Rate], BLANK())
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 32abdc19-7348-4f8c-be54-6117941a8721
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Annualized Rate' = IF('FacutlyTurnoverRate'[Status] = "Annualized", 'FacutlyTurnoverRate'[Turnover Rate], BLANK())
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 61934588-b1a6-48a9-b71a-9de28356e4cf
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearInt
+		dataType: string
+		lineageTag: 3f5487db-7ac2-4f31-bf6f-e6506182e76f
+		summarizeBy: none
+		sourceColumn: YearInt
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmpType
+		dataType: string
+		lineageTag: 3429ff10-b64f-4dcb-a4b9-9f0a098fd761
+		summarizeBy: none
+		sourceColumn: EmpType
+
+		annotation SummarizationSetBy = Automatic
+
+	column AvgRate
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 970ab3e7-ad8c-4b24-9f21-65040b7dc690
+		summarizeBy: none
+		sourceColumn: AvgRate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = User
+
+	partition FacutlyTurnoverRate = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/pjt79774_creighton_edu/Documents/HR%20Reports%20-%20Secured/Data/Turnover%20Rate%20Data.xlsx"), null, true),
+				    FacutlyTurnoverRate_Table = Source{[Item="FacutlyTurnoverRate",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(FacutlyTurnoverRate_Table,{{"Year", type date}, {"Turnover Rate", type number}, {"Status", type text}}),
+				    #"Extracted Year" = Table.TransformColumns(#"Changed Type",{{"Year", Date.Year, Int64.Type}})
+				in
+				    #"Extracted Year"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

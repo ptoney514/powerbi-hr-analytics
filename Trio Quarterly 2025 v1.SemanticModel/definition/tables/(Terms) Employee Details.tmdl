@@ -1,0 +1,255 @@
+table '(Terms) Employee Details'
+	lineageTag: ea64d67b-a791-4e67-862e-da3b1bfc450e
+
+	column 'Empl Num'
+		dataType: string
+		lineageTag: b4c62368-610f-45cd-9db2-b90092ff055a
+		summarizeBy: none
+		sourceColumn: Empl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VP Area'
+		dataType: string
+		lineageTag: 1e5e1a2c-b181-45e7-8b1c-58e2e517a8cc
+		summarizeBy: none
+		sourceColumn: VP Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Benefit Program (Description)'
+		dataType: string
+		lineageTag: 2f815aff-f23b-41fc-8908-cf526363f265
+		summarizeBy: none
+		sourceColumn: Benefit Program (Description)
+
+		annotation SummarizationSetBy = Automatic
+
+	column School
+		dataType: string
+		lineageTag: db6785ec-61ad-48a0-916f-2462e2285e3d
+		summarizeBy: none
+		sourceColumn: School
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Name'
+		dataType: string
+		lineageTag: 38f8d086-f4a1-4800-9984-9fe6860bed61
+		summarizeBy: none
+		sourceColumn: Last Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First Name'
+		dataType: string
+		lineageTag: bf3abcc5-f1ab-4f9f-a71b-3dd0bd6b1e4c
+		summarizeBy: none
+		sourceColumn: First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Middle Name'
+		dataType: string
+		lineageTag: ad5da522-ac6a-4c30-84ed-5069e76fedfc
+		summarizeBy: none
+		sourceColumn: Middle Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Display Name'
+		dataType: string
+		lineageTag: 102155f8-18f6-45de-95f5-9514223ea329
+		summarizeBy: none
+		sourceColumn: Display Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Date of Birth'
+		dataType: string
+		lineageTag: e91e4ba2-b582-4542-b133-632931859c28
+		summarizeBy: none
+		sourceColumn: Person Date of Birth
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 64f49864-e8b0-4f2f-b373-63e82703ddd2
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ethnicity
+		dataType: string
+		lineageTag: b09ee010-b416-4b9f-9d5c-82fbc8316d31
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Disabled
+		dataType: string
+		lineageTag: 9a2c546d-152a-4e97-8c50-e1af59f85639
+		summarizeBy: none
+		sourceColumn: Disabled
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hire Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 5a5b1af9-4bc0-4afa-b94c-86a6d1bbd3c8
+		summarizeBy: none
+		sourceColumn: Hire Date
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'User Person Type'
+		dataType: string
+		lineageTag: 57c175d0-6af0-4b7c-b452-fad4130e168d
+		summarizeBy: none
+		sourceColumn: User Person Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Assignment Category'
+		dataType: string
+		lineageTag: b168134d-75bd-4c1c-a583-34bba5063cbe
+		summarizeBy: none
+		sourceColumn: Assignment Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Grade
+		dataType: string
+		lineageTag: 362c8275-566b-4069-8da2-78c3c6404081
+		summarizeBy: none
+		sourceColumn: Grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Faxc Staff'
+		dataType: string
+		lineageTag: 62aae0fa-baf0-403f-8c3c-539b4d9ccce1
+		summarizeBy: none
+		sourceColumn: Faxc Staff
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Name'
+		dataType: string
+		lineageTag: 447a9318-6180-4b1c-b04d-7b0801d00c5b
+		summarizeBy: none
+		sourceColumn: Job Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hourly/Salaried
+		dataType: string
+		lineageTag: 05c119f3-eb5b-4ad1-9aaf-ce406bd0c561
+		summarizeBy: none
+		sourceColumn: Hourly/Salaried
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dept Name'
+		dataType: string
+		lineageTag: 646f88a8-3987-440f-8eaa-b6a86ee026ea
+		summarizeBy: none
+		sourceColumn: Dept Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vet Status'
+		dataType: string
+		lineageTag: 0ed5c918-220c-4bb3-85f5-fece1d7122df
+		summarizeBy: none
+		sourceColumn: Vet Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Term Reason 1'
+		dataType: string
+		lineageTag: c91b387b-87c8-414b-9c53-b556b7586324
+		summarizeBy: none
+		sourceColumn: Term Reason 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Term Reason 2'
+		dataType: string
+		lineageTag: 9a12440e-ae73-4ef4-a770-27408bdca229
+		summarizeBy: none
+		sourceColumn: Term Reason 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Term Date'
+		dataType: string
+		lineageTag: f11bfc7d-f061-4761-b25d-ba0d0fbac4ff
+		summarizeBy: none
+		sourceColumn: Term Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Term Qtr End Date'
+		dataType: string
+		lineageTag: 56ce4c98-fa1c-468e-ad4f-501f878c256a
+		summarizeBy: none
+		sourceColumn: Term Qtr End Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Std Working Hours'
+		dataType: string
+		lineageTag: 7861826a-c88f-4a10-b725-8ae144f79324
+		summarizeBy: none
+		sourceColumn: Std Working Hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Normal Working Hours'
+		dataType: string
+		lineageTag: 64e376fc-d6eb-4e91-93a5-ee3829580db0
+		summarizeBy: none
+		sourceColumn: Normal Working Hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'People Group'
+		dataType: string
+		lineageTag: 816f95ea-3c43-4eca-b114-5a64fc3113b3
+		summarizeBy: none
+		sourceColumn: People Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: 61f5ceb9-22f3-4d85-93b5-0c20e9553268
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '(Terms) Employee Details' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/ted72647_creighton_edu/Documents/Terms%20Since%202017%20Detail%20PT.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Filtered Rows" = Table.SelectRows(#"Promoted Headers", each ([Term Date] <> #date(2023, 6, 30) and [Term Date] <> #date(2023, 7, 1) and [Term Date] <> #date(2023, 7, 2) and [Term Date] <> #date(2023, 7, 4) and [Term Date] <> #date(2023, 7, 6) and [Term Date] <> #date(2023, 7, 7) and [Term Date] <> #date(2023, 7, 8) and [Term Date] <> #date(2023, 7, 10) and [Term Date] <> #date(2023, 7, 12) and [Term Date] <> #date(2023, 7, 13) and [Term Date] <> #date(2023, 7, 14) and [Term Date] <> #date(2023, 7, 18) and [Term Date] <> #date(2023, 7, 20) and [Term Date] <> #date(2023, 7, 21) and [Term Date] <> #date(2023, 7, 24) and [Term Date] <> #date(2023, 7, 25) and [Term Date] <> #date(2023, 7, 26) and [Term Date] <> #date(2023, 7, 28) and [Term Date] <> #date(2023, 7, 29) and [Term Date] <> #date(2023, 7, 31) and [Term Date] <> #date(2023, 8, 1) and [Term Date] <> #date(2023, 8, 4) and [Term Date] <> #date(2023, 8, 5) and [Term Date] <> #date(2023, 8, 7) and [Term Date] <> #date(2023, 8, 10) and [Term Date] <> #date(2023, 8, 11) and [Term Date] <> #date(2023, 8, 12) and [Term Date] <> #date(2023, 8, 15) and [Term Date] <> #date(2023, 8, 16) and [Term Date] <> #date(2023, 8, 17) and [Term Date] <> #date(2023, 8, 18) and [Term Date] <> #date(2023, 8, 19) and [Term Date] <> #date(2023, 8, 23) and [Term Date] <> #date(2023, 8, 25) and [Term Date] <> #date(2023, 8, 26) and [Term Date] <> #date(2023, 8, 28) and [Term Date] <> #date(2023, 8, 29) and [Term Date] <> #date(2023, 8, 31) and [Term Date] <> #date(2023, 9, 1) and [Term Date] <> #date(2023, 9, 2) and [Term Date] <> #date(2023, 9, 4) and [Term Date] <> #date(2023, 9, 5) and [Term Date] <> #date(2023, 9, 6) and [Term Date] <> #date(2023, 9, 8) and [Term Date] <> #date(2023, 9, 10) and [Term Date] <> #date(2023, 9, 11) and [Term Date] <> #date(2023, 9, 14) and [Term Date] <> #date(2023, 9, 15) and [Term Date] <> #date(2023, 9, 17) and [Term Date] <> #date(2023, 9, 20) and [Term Date] <> #date(2023, 9, 22) and [Term Date] <> #date(2023, 9, 23) and [Term Date] <> #date(2023, 9, 24) and [Term Date] <> #date(2023, 9, 26) and [Term Date] <> #date(2023, 9, 27) and [Term Date] <> #date(2023, 9, 28) and [Term Date] <> #date(2023, 9, 29) and [Term Date] <> #date(2023, 9, 30) and [Term Date] <> #date(2023, 10, 2) and [Term Date] <> #date(2023, 10, 6) and [Term Date] <> #date(2023, 10, 8) and [Term Date] <> #date(2023, 10, 13) and [Term Date] <> #date(2023, 10, 18) and [Term Date] <> #date(2023, 10, 20) and [Term Date] <> #date(2023, 10, 23) and [Term Date] <> #date(2023, 10, 27) and [Term Date] <> #date(2023, 10, 31) and [Term Date] <> #date(2023, 11, 1) and [Term Date] <> #date(2023, 11, 2) and [Term Date] <> #date(2023, 11, 3) and [Term Date] <> #date(2023, 11, 6) and [Term Date] <> #date(2023, 11, 8) and [Term Date] <> #date(2023, 11, 9) and [Term Date] <> #date(2023, 11, 10) and [Term Date] <> #date(2023, 11, 15) and [Term Date] <> #date(2023, 11, 16) and [Term Date] <> #date(2023, 11, 17) and [Term Date] <> #date(2023, 11, 18) and [Term Date] <> #date(2023, 11, 20) and [Term Date] <> #date(2023, 11, 22) and [Term Date] <> #date(2023, 11, 28) and [Term Date] <> #date(2023, 11, 30) and [Term Date] <> #date(2023, 12, 1) and [Term Date] <> #date(2023, 12, 4) and [Term Date] <> #date(2023, 12, 6) and [Term Date] <> #date(2023, 12, 7) and [Term Date] <> #date(2023, 12, 8) and [Term Date] <> #date(2023, 12, 10) and [Term Date] <> #date(2023, 12, 11) and [Term Date] <> #date(2023, 12, 12) and [Term Date] <> #date(2023, 12, 14) and [Term Date] <> #date(2023, 12, 15) and [Term Date] <> #date(2023, 12, 16) and [Term Date] <> #date(2023, 12, 19) and [Term Date] <> #date(2023, 12, 22) and [Term Date] <> #date(2023, 12, 29) and [Term Date] <> #date(2023, 12, 31)))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

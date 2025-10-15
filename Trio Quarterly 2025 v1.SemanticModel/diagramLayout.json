@@ -1,0 +1,255 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 304.21052230031864,
+        "y": 36.8421052631579
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 2245.7368421052633,
+            "y": 344.1447368421052
+          },
+          "nodeIndex": "Benefit_and_Non_Eligible_Open_Positions_as_of_Today_1",
+          "nodeLineageTag": "57b7c429-646c-46f8-8f16-c59586b6887f",
+          "size": {
+            "height": 456.21052631578959,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 3124,
+            "y": 333.25
+          },
+          "nodeIndex": "Emp List CLEANED",
+          "nodeLineageTag": "7fbcc893-32f5-4cb0-8cbd-4286d16444b4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 2237.8947368421054,
+            "y": 23.092105263157894
+          },
+          "nodeIndex": "New Emp List SInce FY20",
+          "nodeLineageTag": "40da7e50-aa23-4629-b609-ba666dfcdf7f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 325.84210526315809,
+            "y": 517.4473684210526
+          },
+          "nodeIndex": "Terms Since 2017",
+          "nodeLineageTag": "cd80b2b8-61d9-477e-8d74-7dd48826b1ea",
+          "size": {
+            "height": 750,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 850.21052631578948,
+            "y": 645.46052631578948
+          },
+          "nodeIndex": "(Terms) Employee Details",
+          "nodeLineageTag": "ea64d67b-a791-4e67-862e-da3b1bfc450e",
+          "size": {
+            "height": 827.63157894736844,
+            "width": 280
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 1468.4736842105269,
+            "y": 11.25
+          },
+          "nodeIndex": "(Terms) Terminations",
+          "nodeLineageTag": "07e6f7ce-dcf2-4aee-885d-eed31f2c8114",
+          "size": {
+            "height": 257.26315789473682,
+            "width": 285.31578947368416
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 377.03947368421052
+          },
+          "nodeIndex": "(Active) Employee Details",
+          "nodeLineageTag": "eeaf2f98-d95f-4a73-b701-7efe4ee04a06",
+          "size": {
+            "height": 238.57894736842104,
+            "width": 285.31578947368428
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 585.84210526315792,
+            "y": 11.25
+          },
+          "nodeIndex": "(Active) Job Details",
+          "nodeLineageTag": "ba51c31e-af39-4fcf-aeb8-833b8faf40ba",
+          "size": {
+            "height": 502.10526315789468,
+            "width": 281.36842105263167
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 92.157894736842309,
+            "y": 11.25
+          },
+          "nodeIndex": "(Active) Orgs",
+          "nodeLineageTag": "21f9b9c7-10b2-4e63-86a7-2db2ad9b12ce",
+          "size": {
+            "height": 232.57894736842104,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 2810.3157894736842,
+            "y": 402.79605263157896
+          },
+          "nodeIndex": "All Measures",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 2911.6315789473683,
+            "y": 1033.375
+          },
+          "nodeIndex": "Date Field Parameter",
+          "nodeLineageTag": "eeba5c82-723a-40de-b900-98c95a2eb6a4",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1968.2105263157896,
+            "y": 59.375000000000171
+          },
+          "nodeIndex": "Salary Increases",
+          "nodeLineageTag": "934f8cf0-b74d-4ff8-a4e3-160004017ff7",
+          "size": {
+            "height": 718.42105263157873,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 3330.7894736842104,
+            "y": 399.875
+          },
+          "nodeIndex": "Date",
+          "nodeLineageTag": "3e9fd7dd-aadf-49b5-8766-7a5d3897ecf2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1203.894736842105,
+            "y": 389.22368421052641
+          },
+          "nodeIndex": "Date (Report End)",
+          "nodeLineageTag": "6e60136b-68bb-4f42-8282-dbf45b7879a7",
+          "size": {
+            "height": 365.78947368421052,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1352.9298513312083,
+            "y": 880.98684210526324
+          },
+          "nodeIndex": "Positions (Taleo)",
+          "nodeLineageTag": "e027fb98-f52a-40af-b77c-0b10a98da2b7",
+          "size": {
+            "height": 596.0526315789474,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 1721.9473684210523,
+            "y": 713.09210526315815
+          },
+          "nodeIndex": "Additional Pay Extract",
+          "nodeLineageTag": "5404e7c4-65e9-464d-a6f2-f77e217dfe27",
+          "size": {
+            "height": 732.8947368421052,
+            "width": 234
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 3624.7894736842104,
+            "y": 585.46052631578959
+          },
+          "nodeIndex": "Employee",
+          "nodeLineageTag": "28870447-f73a-480e-b828-be4a31e741f8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 3908.7894736842104,
+            "y": 660.64473684210532
+          },
+          "nodeIndex": "FacutlyTurnoverRate",
+          "nodeLineageTag": "98fc6196-ef52-4e3c-8b14-ff92275df6e7",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 76,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

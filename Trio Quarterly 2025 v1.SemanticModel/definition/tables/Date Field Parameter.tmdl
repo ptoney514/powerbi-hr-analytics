@@ -1,0 +1,51 @@
+table 'Date Field Parameter'
+	lineageTag: eeba5c82-723a-40de-b900-98c95a2eb6a4
+
+	column 'Date Field Parameter'
+		lineageTag: d37ba7bd-9c45-4f71-a2ee-a0a6a102d2b3
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Date Field Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Date Field Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Field Parameter Fields'
+		isHidden
+		lineageTag: f8246efc-c474-401d-aeb3-1058fccbf739
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Date Field Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Field Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: ee204888-bc7d-4450-9ec8-744d40f97966
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Date Field Parameter' = calculated
+		mode: import
+		source =
+				{
+				    ("Date", NAMEOF('Date (Report End)'[Date]), 0),
+				    ("Fiscal Quarter", NAMEOF('Date (Report End)'[Fis Qtr]), 1),
+				    ("Fiscal Quarter-Year", NAMEOF('Date (Report End)'[Fis Qtr qq-yy]), 2),
+				    ("Fiscal Year", NAMEOF('Date (Report End)'[Fis Year]), 3),
+				    ("Month", NAMEOF('Date (Report End)'[Month]), 4)
+				}
+
+	annotation PBI_Id = 971961273bc04db4b66e8ab5f79577a1
+

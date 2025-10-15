@@ -1,0 +1,154 @@
+table Employee
+	lineageTag: 28870447-f73a-480e-b828-be4a31e741f8
+
+	column PERSON
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a5aceba-8537-4509-8f6a-acdf9dc2c44e
+		summarizeBy: none
+		sourceColumn: PERSON
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PERSON NAME'
+		dataType: string
+		lineageTag: 168e5e85-6170-4bfb-b1ba-a8db34ed23a5
+		summarizeBy: none
+		sourceColumn: PERSON NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ASSIGNMENT NUMBER'
+		dataType: string
+		lineageTag: fe57809a-d8ae-48c9-823a-667e60ba885d
+		summarizeBy: none
+		sourceColumn: ASSIGNMENT NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ASSIGNMENT STATUS'
+		dataType: string
+		lineageTag: 980ec7ae-595e-4a3f-8ea9-b2a5078d5d82
+		summarizeBy: none
+		sourceColumn: ASSIGNMENT STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PRIMARY ASSIGNMENT'
+		dataType: string
+		lineageTag: 7e73d3ec-2505-45b9-83b0-07e1842363f8
+		summarizeBy: none
+		sourceColumn: PRIMARY ASSIGNMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMPLOYEE CATEGORY'
+		dataType: string
+		lineageTag: 6636c5aa-ad20-4d28-bdf7-ca74ba5bbe6b
+		summarizeBy: none
+		sourceColumn: EMPLOYEE CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMPLOYMENT CATEGORY'
+		dataType: string
+		lineageTag: ec56a2f3-bbc7-4ef9-bd0f-3aa9d3ace991
+		summarizeBy: none
+		sourceColumn: EMPLOYMENT CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB NAME'
+		dataType: string
+		lineageTag: 7566e65b-e9d9-4e70-8344-e4c62991bb76
+		summarizeBy: none
+		sourceColumn: JOB NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GRADE CODE'
+		dataType: string
+		lineageTag: 0de1ad1d-a651-4268-8692-c2c1d6f5358f
+		summarizeBy: none
+		sourceColumn: GRADE CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAYROLL
+		dataType: string
+		lineageTag: 58d9ae8a-8bfc-4824-9716-fa2dbf7fa7cb
+		summarizeBy: none
+		sourceColumn: PAYROLL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NORMAL HOURS'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3703c88c-b72a-46c3-8d03-fe7681ceb387
+		summarizeBy: none
+		sourceColumn: NORMAL HOURS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SALARY AMOUNT'
+		dataType: double
+		lineageTag: 9ac8073d-669c-484d-9333-b768b8ee1f3e
+		summarizeBy: none
+		sourceColumn: SALARY AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Employee = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://creightonuniv-my.sharepoint.com/personal/pjt79774_creighton_edu/Documents/HR%20Reports%20-%20Secured/data/CRUNV%20Additional_Interim_Incentive%20Pay%20Report_CRUNV_ADDITIONAL_INTERIM_INCENTIVE_PAY_REPORT.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"PERSON", type text}, {"PERSON NAME", type text}, {"ASSIGNMENT NUMBER", type text}, {"ASSIGNMENT STATUS", type text}, {"PRIMARY ASSIGNMENT", type text}, {"EMPLOYEE CATEGORY", type text}, {"EMPLOYMENT CATEGORY", type text}, {"JOB NAME", type text}, {"DEPT NAME", type text}, {"VP", type text}, {"SCHOOL", type text}, {"GRADE CODE", type text}, {"PAYROLL", type text}, {"NORMAL HOURS", Int64.Type}, {"Column15", type any}, {"SALARY AMOUNT", type number}, {"CHEQUE DATE", type date}, {"DATE EARNED", type date}, {"PAYMENT_TYPE", type text}, {"REASON", type text}, {"AMOUNT", type number}, {"FUND", Int64.Type}, {"ORG", Int64.Type}, {"ACCOUNT", Int64.Type}}),
+				    #"Removed Top Rows" = Table.Skip(#"Changed Type",1),
+				    #"Removed Columns" = Table.RemoveColumns(#"Removed Top Rows",{"Column15"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Removed Columns","CRUNV ","",Replacer.ReplaceText,{"PAYMENT_TYPE"}),
+				    #"Extracted Text After Delimiter" = Table.TransformColumns(#"Replaced Value", {{"DEPT NAME", each Text.AfterDelimiter(_, " "), type text}}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Extracted Text After Delimiter","CRUNV ","",Replacer.ReplaceText,{"REASON"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","CFE","Center for Faculty Excellence",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","ClinAff","Health Sciences Multicultural & Community Affairs",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","EDI","Equity, Diversity & Inclusion",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","GENC","General Counsel",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","HR","Human Resources",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Replaced Value6","JesCom","Jesuit Community",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value8" = Table.ReplaceValue(#"Replaced Value7","Law School","Law",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value9" = Table.ReplaceValue(#"Replaced Value8","Phoenix","Phoenix Alliance",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value10" = Table.ReplaceValue(#"Replaced Value9","PRES","Office of the President",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value11" = Table.ReplaceValue(#"Replaced Value10","Provost","Office of the Provost",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value12" = Table.ReplaceValue(#"Replaced Value11","SueSucs","Student Success",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value13" = Table.ReplaceValue(#"Replaced Value12","UCOM","University Communications",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value14" = Table.ReplaceValue(#"Replaced Value13","VPEM","Enrollment Management",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value15" = Table.ReplaceValue(#"Replaced Value14","VPFN","Finance",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value16" = Table.ReplaceValue(#"Replaced Value15","VPGE","Global Engagement",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value17" = Table.ReplaceValue(#"Replaced Value16","VPIT","Information Technology",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value18" = Table.ReplaceValue(#"Replaced Value17","VPLS","Library Services",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value19" = Table.ReplaceValue(#"Replaced Value18","VPMM","Mission & Ministry",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value20" = Table.ReplaceValue(#"Replaced Value19","VPSL","Student Life",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value21" = Table.ReplaceValue(#"Replaced Value20","VPUR","University Relations",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value22" = Table.ReplaceValue(#"Replaced Value21","CollProCE","College of Professional & Continuing Eduction",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Replaced Value23" = Table.ReplaceValue(#"Replaced Value22","VPAA","Academic Affairs",Replacer.ReplaceText,{"SCHOOL"}),
+				    #"Added Index" = Table.AddIndexColumn(#"Replaced Value23", "Index", 0, 1, Int64.Type),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Index",{{"PERSON", Int64.Type}}),
+				    #"Replaced Value24" = Table.ReplaceValue(#"Changed Type1","Additional Duties","General",Replacer.ReplaceText,{"REASON"}),
+				    #"Replaced Value25" = Table.ReplaceValue(#"Replaced Value24","Special Pay Sup","Supplemental Earnings",Replacer.ReplaceText,{"PAYMENT_TYPE"}),
+				    #"Replaced Value26" = Table.ReplaceValue(#"Replaced Value25","Interim pay","Interim Payments",Replacer.ReplaceText,{"PAYMENT_TYPE"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Replaced Value26", {"ASSIGNMENT NUMBER"}),
+				    #"Sorted Rows" = Table.Sort(#"Removed Duplicates",{{"PERSON NAME", Order.Ascending}}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Sorted Rows",{"DEPT NAME", "VP", "SCHOOL", "CHEQUE DATE", "DATE EARNED", "PAYMENT_TYPE", "REASON", "AMOUNT", "FUND", "ORG", "ACCOUNT", "Index"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Columns1", each true)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
