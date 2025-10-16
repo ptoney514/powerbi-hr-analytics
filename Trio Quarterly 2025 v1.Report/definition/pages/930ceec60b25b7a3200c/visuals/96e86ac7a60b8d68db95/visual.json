@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "96e86ac7a60b8d68db95",
   "position": {
     "x": 8,
@@ -926,6 +926,48 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "511f3e71c3ab8094780c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "All Measures"
+              }
+            },
+            "Property": "Residents"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "57f83bcde602d7c8bc9c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Terms Since 2017"
+              }
+            },
+            "Property": "Terms Faculty_fix"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7f03f51f7c036ae70e8c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Terms Since 2017"
+              }
+            },
+            "Property": "Terms Staff_fix"
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

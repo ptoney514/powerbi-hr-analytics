@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd /c \"git status\")",
+      "Bash(powershell -Command \"git status\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
